@@ -327,7 +327,7 @@ td{
 }
 
 /* Full-width input fields */
-input[type=text], input[type=date], input[type=file] {
+input[type=text], input[type=password], input[type=file], input[type=date] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -335,6 +335,7 @@ input[type=text], input[type=date], input[type=file] {
   border: none;
   background: #f1f1f1;
 }
+
 select{
     width: 100%;
     padding: 15px;
