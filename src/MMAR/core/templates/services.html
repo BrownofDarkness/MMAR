@@ -28,33 +28,7 @@
            
         </header>
         <main>
-            <h2 class="dash-title">services plus sollicites</h2>
-            <div class="dash-cards">
-                    <div class="img">
-                        <img class="card-single" src="{% static 'img/coiffure-femme-noire-metis-hairstyles-black-women-1.jpg' %}" alt="">
-                        <h4>manicure</h4><br>
-                    </div>
-
-                    <div class="img">
-                        <img class="card-single" src="{% static 'img/coiffure-femme-noire-metis-hairstyles-black-women-1.jpg' %}"  alt="">
-                        <h4>manicure</h4><br>
-                    </div>
-
-                    <div class="img">
-                        <img class="card-single" src="{% static 'img/coiffure-femme-noire-metis-hairstyles-black-women-1.jpg' %}"  alt="">
-                        <h4>manicure</h4><br>
-                    </div>
-
-                    <div class="img">
-                        <img class="card-single" src="{% static 'img/coiffure-femme-noire-metis-hairstyles-black-women-1.jpg' %}" alt="">
-                        <h4>manicure</h4><br>
-                    </div>             
-                 
-            </div>
-            <button onclick="document.getElementById('id03').style.display='block'">modifier</button>
-
-
-            
+                       
             <section class="recent">
                 <div class="activity-grid">
                         
@@ -65,8 +39,7 @@
                                 <tr>
                                     <th>intitule</th>
                                     <th>montant</th>
-                                    <th>description</th>
-                                    <th>modifier</th>
+                                    
 
                                     
                                 </tr>
@@ -75,16 +48,14 @@
                                 <tr>
                                         <td>soins visage vip</td>
                                         <td>12343546</td>
-                                        <td>pour eclat de votre visage</td>
-                                        <td><button onclick="document.getElementById('id01').style.display='block'">modifier</button></td>
-                                    
+                                       
+                                       
                                 </tr>
                                 <tr>
                                     <td>soins visage vip</td>
                                     <td>12343546</td>
-                                    <td>pour eclat de votre visage</td>
-                                    <td><button onclick="document.getElementById('id01').style.display='block'">modifier</button></td>
-                                
+                                    
+                                    
                             </tr>
                             <tr>
                                 <td>soins visage vip</td>
@@ -147,8 +118,6 @@
                         <label for="description"><b>description</b></label>
                         <input type="text" placeholder="Entrer les details du service" name="description" required>
 
-                        
-        
                   
                         
                         <div class="clearfix">
@@ -159,28 +128,7 @@
                     </form>
                   </div>
 
-                  <div id="id03" class="modal">
-                    <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">fermer</span>
-                    <form class="modal-content" action="" method="post">
-                      <div class="container">
-                        <h6>Remplissez moi</h6>
-                       
-                       
-                        <label for="title"><b>intitule de la photo</b></label>
-                        <input type="text" placeholder="Entrer l'intitule" name="title" required>
                   
-                        <label for="file"><b>image</b></label>
-                        <input type="file" placeholder="Entrer la photo" name="file" required>
-        
-                  
-                        
-                        <div class="clearfix">
-                          <button type="button" onclick="document.getElementById('id03').style.display='none'" class="cancelbtn">Cancel</button>
-                          <button type="submit" class="signup">enregistre</button>
-                        </div>
-                      </div>
-                    </form>
-                  </div>
             </section>
 
             <button onclick="document.getElementById('id02').style.display='block'">Ajouter</button>
@@ -208,15 +156,7 @@
           }
         }
 
-        // Get the modal
-        var modal = document.getElementById('id03');
         
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-          if (event.target == modal) {
-            modal.style.display = "none";
-          }
-        }
         </script>
 </body>
 </html>
