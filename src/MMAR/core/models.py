@@ -12,14 +12,15 @@ class Client(models.Model):
     date_enregistrement = models.DateField(auto_now_add=True)
 
 
-class Category(models.Model):
-    name = models.CharField(max_length=155)
-
-
 class Service(models.Model):
     name = models.CharField(max_length=155)
+    description = models.TextField()
     prix = models.IntegerField()
-    category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="articles")
+
+
+class Commande(models.Model):
+    service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='services_commandes')
+    client = models.OneToOneField(Service, on_delete=models.CASCADE, related_name='client_commandes')
 
 
 

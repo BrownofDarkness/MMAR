@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from .forms import Clientform, Serviceform
 from django.views import View
-from .models import Client, Service, Category
+from .models import Client, Service, Commande
+from django.contrib import messages
 
 
 class Home(View):
@@ -23,22 +24,36 @@ class ClientView(View):
 
 class ServicesView(View):
     template_name = 'services.html'
+    form_class = Serviceform
 
     def get(self, request, *args, **kwargs):
-        return render(request, self.template_name)
+        queryset = Service.objects.all()
+        return render(request, self.template_name, {'form': self.form_class(), 'services': queryset})
 
     def post(self, request, *args, **kwargs):
-        return render(request, self.template_name)
+        form = self.form_class(request.POST, request.FILES)
+        if form.is_valid():
+            form.save(request)
+            return redirect('services')
+        return render(request, self.template_name, {'form': form})
 
 
 class MdService(View):
     template_name = 'modifierservice.html'
+    form_class = Serviceform
 
-    def get(self, request, *args, **kwargs):
-        return render(request, self.template_name)
+    def get(self, request, my_id,*args, **kwargs):
+        obj = Service.objects.get(id=my_id)
+        form = self.form_class(request.POST or None, instance=obj)
+        return render(request, self.template_name,{'form': form})
 
-    def post(self, request, *args, **kwargs):
-        return render(request, self.template_name)
+    def post(self, request, my_id,*args, **kwargs):
+        obj = Service.objects.get(id=my_id)
+        form = self.form_class(request.POST or None, instance=obj)
+        if form.is_valid():
+            form.save()
+            return redirect('services')
+        return render(request, self.template_name, {'form': form})
 
 
 class Newcommand(View):

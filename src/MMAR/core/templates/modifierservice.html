@@ -34,18 +34,12 @@
             
              
         </div>
-        <form action="">
+        <form action="" method="post" enctype="multipart/form-data">
             <div class="container">
-                         
-          
-              <label for="name"><b>intitule</b></label>
-              <input type="text" placeholder="entrer nom du service" name="prix" id="prix" required>
+                {% csrf_token %}
+                {{form.as_p}}
 
-              <label for="prix"><b>prix</b></label>
-              <input type="text" placeholder="modifier le prix du service" name="prix" id="prix" required>
-                    
-              
-              <button type="submit" class="registerbtn">Register</button>
+              <button type="submit" class="registerbtn">submit</button>
             </div>
           
            

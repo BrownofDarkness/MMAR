@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Client, Service,Category
+from .models import Client, Service,Commande
 # Register your models here.
 
 
@@ -8,9 +8,9 @@ class ClientAdmin(admin.ModelAdmin):
 
 
 class ServiceAdmin(admin.ModelAdmin):
-    list_display = ('name', 'prix', 'category')
+    list_display = ('name', 'prix', 'description')
 
 
 admin.site.register(Client, ClientAdmin)
 admin.site.register(Service, ServiceAdmin)
-admin.site.register(Category)
+admin.site.register(Commande)
