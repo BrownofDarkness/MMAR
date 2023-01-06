@@ -319,6 +319,19 @@ td{
     }
 }
 
+
+button{
+    width: 5rem;
+    height: 2.5rem;
+    background:var(--color-dark);
+    border-radius: 5px;
+    overflow:  var(--color-dark);
+    color: white;
+    border: 0px;
+    
+  
+}
+
 * {box-sizing: border-box}
 
 /* Add padding to containers */

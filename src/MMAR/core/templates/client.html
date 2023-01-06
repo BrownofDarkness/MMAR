@@ -56,7 +56,7 @@
                                         <td>tresse</td>
                                         <td>23 juillet 2022</td>
                                         <td>10.000</td>
-                                        <td><button><a href="nouveau.html"></a>nouveau</button></td>
+                                        <td><button><a href="{% url 'new_command' %}">nouveau</a></button></td>
                                         <td><button onclick="document.getElementById('id03').style.display='block'">Supprimer</button></td>
                                         <td><center>10</center></td>
                                    </tr>
@@ -66,7 +66,7 @@
                                         <td>massage</td>
                                         <td>12 aout 2022</td>
                                         <td>25.000</td>
-                                        <td><button><a href="nouveau.html"></a>nouveau</button></td>
+                                        <td><button><a href="{% url 'new_command' %}">nouveau</a></button></td>
                                         <td><button onclick="document.getElementById('id03').style.display='block'">Supprimer</button></td>
                                         <td><center>10</center></td>
                                    </tr>
@@ -76,7 +76,7 @@
                                         <td>coifffff</td>
                                         <td>24 septembre 2022</td>
                                         <td>5.000</td>
-                                        <td><button><a href="nouveau.html"></a>nouveau</button></td>
+                                        <td><button><a href="{% url 'new_command' %}">nouveau</a></button></td>
                                         <td><button onclick="document.getElementById('id03').style.display='block'">Supprimer</button></td>
                                         <td><center>10</center></td>
                                    </tr>
@@ -86,7 +86,7 @@
                                         <td>ongle</td>
                                         <td>30 deembre 1022</td>
                                         <td>6.000</td>
-                                        <td><button><a href="nouveau.html"></a>nouveau</button></td>
+                                        <td><button><a href="{% url 'new_command' %}">nouveau</a></button></td>
                                         <td><button onclick="document.getElementById('id03').style.display='block'">Supprimer</button></td>
                                         <td><center>10</center></td>
                                    </tr>
@@ -96,7 +96,7 @@
                                         <td>soins</td>
                                         <td>1 janvier 2023</td>
                                         <td>20.000</td>
-                                        <td><button><a href="modifiercli.html"></a>nouveau</button></td>
+                                        <td><button><a href="{% url 'new_command' %}">nouveau</a></button></td>
                                         <td><button onclick="document.getElementById('id03').style.display='block'">Supprimer</button></td>
                                         <td><center>10</center></td>
                                    </tr>
@@ -178,15 +178,6 @@
    
     
        <script>
-        // Get the modal
-        var modal = document.getElementById('id01');
-        
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-          if (event.target == modal) {
-            modal.style.display = "none";
-          }
-        }
 
         // Get the modal
         var modal = document.getElementById('id02');

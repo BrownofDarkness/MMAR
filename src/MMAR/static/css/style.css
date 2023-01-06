@@ -15,6 +15,9 @@
 .sidebar-toggle{
     display: none;
 }
+a{
+    color: white;
+}
 
 
 .sidebar{
