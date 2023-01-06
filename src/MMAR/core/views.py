@@ -31,6 +31,26 @@ class ServicesView(View):
         return render(request, self.template_name)
 
 
+class MdService(View):
+    template_name = 'modifierservice.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+    def post(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+
+class Newcommand(View):
+    template_name = 'nouveau.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+    def post(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+
 class AccountView(View):
     template_name = 'compte.html'
 
@@ -40,4 +60,3 @@ class AccountView(View):
     def post(self, request, *args, **kwargs):
         return render(request, self.template_name)
 
-    # Create your views here.
