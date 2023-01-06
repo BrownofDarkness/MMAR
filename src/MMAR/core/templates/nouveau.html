@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=!, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
+    <link rel="stylesheet" href="{% static 'css/client.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" id="sidebar-toggle">
+    {% include 'sidebar.html' %}
+       <div class="main-content">
+        <header>
+            <div class="search-wrapper">
+                <span class="ti-search"></span>
+                <input type="search" placeholder="search">
+            </div>
+            <div class="social-icons">
+                <span class="ti-bell"></span>
+                <span class="ti-comment"></span>
+                <div></div>
+            </div>
+           
+        </header>
+        <main>
+            <h2 class="dash-title">modifier votre profil</h2>
+            <div class="dash-cards">
+                
+               
+            
+             
+        </div>
+        <form action="">
+            <div class="container">
+                         
+          
+              <label for="name"><b>service</b></label>
+              <select name="service" id="" aria-placeholder="entrer le service"></select>
+
+              <label for="prix"><b>prix</b></label>
+              <input type="text" placeholder="entrer le prix du service" name="prix" id="prix" required>
+          
+              <label for="date"><b>date</b></label>
+              <input type="date" placeholder="entrer la date du rendez-vous" name="prix" id="prix" required>
+              <hr>
+          
+              
+              <button type="submit" class="registerbtn">Register</button>
+            </div>
+          
+           
+          </form>
+        </main>
+       </div>
+   
+    
+</body>
+</html>
