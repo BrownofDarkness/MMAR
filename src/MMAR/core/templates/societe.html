@@ -3,11 +3,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <meta name="viewport" content="width=device-width, initial-scale=!, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/client.css' %}">
     <title>Document</title>
 </head>
 <body>
@@ -27,74 +27,33 @@
            
         </header>
         <main>
-            
-            <section class="recent">
-                <div class="activity-grid">
-                        
-                    <div class="activity-card">
-                        <h3>clients ressent</h3>
-
-                        <div class="table-responsive">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>Telephone</th>
-                                        <th>Nom du client</th>
-                                        <th>service sollicite</th>
-                                        <th>Jour de visite</th>
-                                        <th>Prix</th>
-                                        <th>freauence de recette</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                   <tr>
-                                        <td>6576543456</td>
-                                        <td>agnes</td>
-                                        <td>tresse</td>
-                                        <td>23 juillet 2022</td>
-                                        <td>10.000</td>
-                                        <td><center>10</center></td>
-                                   </tr>
-                                   <tr>
-                                        <td>2354657843734</td>
-                                        <td>mileine</td>
-                                        <td>massage</td>
-                                        <td>12 aout 2022</td>
-                                        <td>25.000</td>
-                                        <td><center>13</center></td>
-                                   </tr>
-                                   <tr>
-                                        <td>223345566</td>
-                                        <td>baba</td>
-                                        <td>coifffff</td>
-                                        <td>24 septembre 2022</td>
-                                        <td>5.000</td>
-                                        <td><center>6</center></td>
-                                   </tr>
-                                   <tr>
-                                        <td>23455667778</td>
-                                        <td>barbie</td>
-                                        <td>ongle</td>
-                                        <td>30 deembre 1022</td>
-                                        <td>6.000</td>
-                                        <td><center>5</center></td>
-                                   </tr>
-                                   <tr>
-                                        <td>374654758465</td>
-                                        <td>mimi</td>
-                                        <td>soins</td>
-                                        <td>1 janvier 2023</td>
-                                        <td>20.000</td>
-                                        <td><center>10</center></td>
-                                   </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        
-                    </div> 
+            <h2 class="dash-title">Bienvenue à vous</h2>
+            <div class="dash-cards">
+                
                
-                </div>
-            </section>
+            
+             
+        </div>
+        <form action="">
+            <div class="container">
+                         
+          
+              <label for="name"><b>nom entreprise</b></label>
+              <input type="text" placeholder="Enter nom de l'entreprise" name="name" id="name" required>
+
+              <label for="psw"><b>Password</b></label>
+              <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+          
+              <label for="psw-repeat"><b>Repeat Password</b></label>
+              <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+              <hr>
+          
+              <button><a href="{% url 'home' %}">fermer</a></button>
+              <button type="submit" class="registerbtn">enregistre</button>
+            </div>
+          
+           
+          </form>
         </main>
        </div>
    

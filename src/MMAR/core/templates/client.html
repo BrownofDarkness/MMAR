@@ -64,17 +64,17 @@
                                         <td><center>10</center></td>
                                    </tr>
                                 {% endfor %}
-                                   <tr>
-                                        <td>374654758465</td>
-                                        <td>mimi</td>
-                                        <td>soins</td>
-                                        <td>1 janvier 2023</td>
-                                        <td>20.000</td>
-                                        <td><button><a href="{% url 'new_command' %}">nouveau</a></button></td>
-                                        <td><button><a href="client/1">details</a></button></td>
-                                        <td><button onclick="document.getElementById('id03').style.display='block'">Supprimer</button></td>
-                                        <td><center>10</center></td>
-                                   </tr>
+                                <tr>
+                                  <td>{{item.phone}}</td>
+                                  <td>{{item.name}}</td>
+                                  <td>soins</td>
+                                  <td>1 janvier 2023</td>
+                                  <td>20.000</td>
+                                  <td><button><a href="{% url 'new_command' %}">nouveau</a></button></td>
+                                  <td><button><a href="client/{{item.id}}">details</a></button></td>
+                                  <td><button onclick="document.getElementById('id03').style.display='block'">Supprimer</button></td>
+                                  <td><center>10</center></td>
+                             </tr>
                                 </tbody>
                             </table>
                         </div>
