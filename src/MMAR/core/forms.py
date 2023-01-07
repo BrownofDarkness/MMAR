@@ -3,10 +3,14 @@ from .models import Client, Service, Commande
 
 
 class Clientform(forms.ModelForm):
+    name = forms.CharField(label='Nom client', max_length=155, required=True, widget=forms.TextInput())
+    quartier = forms.CharField(label='Quartier du client', max_length=155, required=True, widget=forms.TextInput())
+    phone = forms.IntegerField(label='Telephone', required=True, widget=forms.NumberInput())
 
     class Meta:
         model = Client
-        fields = ['name', 'phone', 'profession']
+        fields = ['name', 'quartier', 'phone', 'profession']
+
 
 
 class Serviceform(forms.ModelForm):
@@ -17,3 +21,19 @@ class Serviceform(forms.ModelForm):
     class Meta:
         model = Service
         fields = ['name','description','prix']
+
+
+class Commandform(forms.ModelForm):
+
+    class Meta:
+        model = Commande
+        fields = ['service']
+
+    def save(self,pk, commit=True):
+        service = self.cleaned_data['service']
+        client = Client.objects.get(pk=pk)
+        commande = Commande.objects.create(service=service, client=client)
+
+        return commande
+
+

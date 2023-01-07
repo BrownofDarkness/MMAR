@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .forms import Clientform, Serviceform
+from .forms import Clientform, Serviceform,Commandform
 from django.views import View
 from .models import Client, Service, Commande
 from django.contrib import messages
@@ -28,13 +28,33 @@ class LoginView(View):
 
 class ClientView(View):
     template_name = 'client.html'
+    form_class = Clientform
 
     def get(self, request, *args, **kwargs):
         clients = Client.objects.all()
-        return render(request, self.template_name, {'clients':clients})
+        clientview = {
+            'client': '',
+            'last_command':'',
+            'frequence': 0
+        }
+        list =[]
+
+        for item in clients:
+            clientview['client']= item
+            if Commande.objects.filter(client=item):
+                commande =Commande.objects.filter(client=item).last()
+                print(commande)
+                clientview['last_command'] = Commande.objects.filter(client=item).last()
+                clientview['frequence'] = Commande.objects.filter(client=item).count()
+            list.append(clientview)
+        return render(request, self.template_name, {'clients': list, 'form': self.form_class()})
 
     def post(self, request, *args, **kwargs):
-        return render(request, self.template_name)
+        form = self.form_class(request.POST, request.FILES)
+        if form.is_valid():
+            form.save(request)
+            return redirect('services')
+        return render(request, self.template_name, {'form': form})
 
 
 class ClientDetailView(View):
@@ -42,12 +62,14 @@ class ClientDetailView(View):
 
     def get(self, request, pk,*args, **kwargs):
         client = Client.objects.get(pk=pk)
-        comandes = client.client_commandes
+        comandes = Commande.objects.filter(client=client.id)
         context = {
-            'client':client,
-            'comandes': comandes
+            'client': client,
+            'comandes': comandes.order_by('-id'),
+            'compte': comandes.count()
+
         }
-        return render(request, self.template_name,context)
+        return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
         return render(request, self.template_name)
@@ -58,7 +80,7 @@ class ServicesView(View):
     form_class = Serviceform
 
     def get(self, request, *args, **kwargs):
-        queryset = Service.objects.all()
+        queryset = Service.objects.all().order_by('-id')
         return render(request, self.template_name, {'form': self.form_class(), 'services': queryset})
 
     def post(self, request, *args, **kwargs):
@@ -83,18 +105,23 @@ class MdService(View):
         form = self.form_class(request.POST or None, instance=obj)
         if form.is_valid():
             form.save()
-            return redirect('services')
+            return redirect('clients')
         return render(request, self.template_name, {'form': form})
 
 
 class Newcommand(View):
     template_name = 'nouveau.html'
+    form_class = Commandform
 
-    def get(self, request, *args, **kwargs):
-        return render(request, self.template_name)
+    def get(self, request,pk, *args, **kwargs):
+        return render(request, self.template_name, {'form': self.form_class()})
 
-    def post(self, request, *args, **kwargs):
-        return render(request, self.template_name)
+    def post(self, request, pk, *args, **kwargs):
+        form = self.form_class(request.POST or None)
+        if form.is_valid():
+            form.save(pk)
+            return redirect('client')
+        return render(request, self.template_name, {'form': form})
 
 
 class AccountView(View):

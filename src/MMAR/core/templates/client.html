@@ -53,25 +53,25 @@
                                 <tbody>
                                 {% for item in clients %}
                                 <tr>
-                                        <td>{{item.phone}}</td>
-                                        <td>{{item.name}}</td>
-                                        <td>soins</td>
-                                        <td>1 janvier 2023</td>
-                                        <td>20.000</td>
-                                        <td><button><a href="{% url 'new_command' %}">nouveau</a></button></td>
-                                        <td><button><a href="client/{{item.id}}">details</a></button></td>
+                                        <td>{{item.client.phone}}</td>
+                                        <td>{{item.client.name}}</td>
+                                        <td>{{item.last_command.service}}</td>
+                                        <td>{{item.last_command.created_at}}</td>
+                                        <td>{{item.last_command.service.prix}}</td>
+                                        <td><button><a href="client/{{item.client.id}}/new_command">nouveau</a></button></td>
+                                        <td><button><a href="client/{{item.client.id}}">details</a></button></td>
                                         <td><button onclick="document.getElementById('id03').style.display='block'">Supprimer</button></td>
-                                        <td><center>10</center></td>
+                                        <td><center>{{item.frequence}}</center></td>
                                    </tr>
                                 {% endfor %}
                                 <tr>
-                                  <td>{{item.phone}}</td>
-                                  <td>{{item.name}}</td>
+                                  <td>lol</td>
+                                  <td>top</td>
                                   <td>soins</td>
                                   <td>1 janvier 2023</td>
                                   <td>20.000</td>
-                                  <td><button><a href="{% url 'new_command' %}">nouveau</a></button></td>
-                                  <td><button><a href="dashbord/client/{{item.id}}">details</a></button></td>
+                                  <td><button><a href="client/1/new_command">nouveau</a></button></td>
+                                  <td><button><a href="client/{{item.id}}">details</a></button></td>
                                   <td><button onclick="document.getElementById('id03').style.display='block'">Supprimer</button></td>
                                   <td><center>10</center></td>
                              </tr>
@@ -87,24 +87,12 @@
             <!--formulaire ajouter-->
             <div id="id02" class="modal">
                 <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">fermer</span>
-                <form class="modal-content" action="" method="post">
+                <form class="modal-content" action="" method="post" enctype="multipart/form-data">
                   {% csrf_token %}
                   <div class="container">
                     <h6>Remplissez moi</h6>
-                   
-                   
-                    <label for="telephone"><b>telephone</b></label>
-                    <input type="text" placeholder="Entrer numero telephone client" name="telephone" required>
-              
-                    <label for="nom"><b>nom client</b></label>
-                    <input type="text" placeholder="Entrer le nom du client" name="nom" required>
-
-                    <label for="quartier"><b>quartier du client</b></label>
-                    <input type="text" placeholder="Entrer le nom du client" name="quartier" required>
-
-                    <label for="service"><b>service sollicite</b></label>
-                    <select name="service" id="">service</select><br>
-                    
+                      {% csrf_token %}
+                      {{form.as_p}}
                     <div class="clearfix">
                       <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
                       <button type="submit" class="signup">enregistre</button>

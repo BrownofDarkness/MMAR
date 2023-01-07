@@ -34,18 +34,10 @@
             
              
         </div>
-        <form action="">
+        <form action="" method="post" enctype="multipart/form-data">
             <div class="container">
-                         
-          
-              <label for="name"><b>service</b></label>
-              <select name="service" id="" aria-placeholder="entrer le service"></select>
-
-              <label for="prix"><b>prix</b></label>
-              <input type="text" placeholder="entrer le prix du service" name="prix" id="prix" required>
-          
-              <label for="date"><b>date</b></label>
-              <input type="date" placeholder="entrer la date du rendez-vous" name="prix" id="prix" required>
+                {% csrf_token %}
+                {{form.as_p}}
               <hr>
           
               <button><a href="{% url 'client' %}">retour</a></button>
