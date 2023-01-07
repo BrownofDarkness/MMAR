@@ -460,7 +460,17 @@ input[type=text], input[type=password], input[type=file], input[type=date], inpu
     color: #f44336;
     cursor: pointer;
   }
-
+  button{
+    width: 6rem;
+    height: 2.5rem;
+    background:var(--color-dark);
+    border-radius: 5px;
+    overflow:  var(--color-dark);
+    color: white;
+    border: 0px;
+    
+  
+}
 
   
   /* Change styles for cancel button and signup button on extra small screens */
