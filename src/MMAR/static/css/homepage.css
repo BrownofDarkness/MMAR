@@ -25,7 +25,7 @@ main{
   margin-top: 9px;
   min-height: 90vh;
   padding: 1rem 3rem;
- background: url(../bg/img/carte.jpg);
+ background: url(../img/carte.jpg);
 }
 .contain{
  margin-top: 15rem;
@@ -141,8 +141,78 @@ hr {
 }
 
 /* Change styles for cancel button and signup button on extra small screens */
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 600px) {
   .cancelbtn, .signupbtn {
     width: 100%;
   }
+
+ 
+  .contain{
+  
+   margin-left: 3rem;
+    
+  
+  }
+
+  button{
+    width: 40%;
+    height: 2.5rem;
+    background:var(--color-dark);
+    border-radius: 10px;
+    overflow:  var(--color-dark);
+    color: white;
+    border: 0px;
+  
+  }
 }
+
+@media screen and (max-width: 860px) {
+  .cancelbtn, .signupbtn {
+    width: 100%;
+  }
+
+ 
+  .contain{
+  
+   margin-left: 3rem;
+    
+  
+  }
+
+  button{
+    width: 40%;
+    height: 2.5rem;
+    background:var(--color-dark);
+    border-radius: 10px;
+    overflow:  var(--color-dark);
+    color: white;
+    border: 0px;
+  
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .cancelbtn, .signupbtn {
+    width: 100%;
+  }
+
+ 
+  .contain{
+  
+   margin-left: 8rem;
+    
+  
+  }
+
+  button{
+    width: 40%;
+    height: 2.5rem;
+    background:var(--color-dark);
+    border-radius: 10px;
+    overflow:  var(--color-dark);
+    color: white;
+    border: 0px;
+  
+  }
+}
+

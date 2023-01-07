@@ -32,7 +32,7 @@ main{
   margin-top: 9px;
   min-height: 90vh;
 
- background: url(../bg/img/d228ee1c86849d570c8bb21e3849c415.jpg);
+ background: url(../img/d228ee1c86849d570c8bb21e3849c415.jpg);
  color: white;
 
 }
@@ -106,3 +106,34 @@ a {
   background-color: #f1f1f1;
   text-align: center;
 }
+
+@media screen and (max-width: 600px) {
+  
+
+  button{
+    width: 5rem;
+    height: 2.5rem;
+    background:var(--color-dark);
+    border-radius: 10px;
+    overflow:  var(--color-dark);
+    color: white;
+    border: 0px;
+  
+  }
+}
+
+@media screen and (max-width: 860px) {
+ 
+
+  button{
+    width: 5rem;
+    height: 2.5rem;
+    background:var(--color-dark);
+    border-radius: 10px;
+    overflow:  var(--color-dark);
+    color: white;
+    border: 0px;
+  
+  }
+}
+

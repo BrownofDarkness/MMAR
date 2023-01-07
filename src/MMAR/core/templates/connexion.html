@@ -1,10 +1,11 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="connexion.css">
+    <link rel="stylesheet" href="{% static 'css/connexion.css' %}">
     <title>Document</title>
 </head>
 <body>
@@ -17,21 +18,19 @@
             <div class="contain">
             <form action="">
                 <div class="container">
-                  <h1>Register</h1>
+                  <h1>Connexion</h1>
                  
                   <hr>
               
-                  <label for="email"><b>Email</b></label>
-                  <input type="text" placeholder="Enter Email" name="email" id="email" required>
+                  <label for="nom"><b>Nom entreprise</b></label>
+                  <input type="text" placeholder="Enter le nom de l'entreprise" name="nom" id="nom" required>
               
-                  <label for="psw"><b>Password</b></label>
-                  <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
+                  <label for="psw"><b>Mot de passe</b></label>
+                  <input type="password" placeholder="Enter mot de passe" name="psw" id="psw" required>
               
-                  <label for="psw-repeat"><b>Repeat Password</b></label>
-                  <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
                   <hr>
               
-                  <button><a href="homepage.html">retour</a></button>
+                  <button><a href="{% url 'home' %}">retour</a></button>
                   <button type="submit" class="registerbtn">Soumettre</button>
                 </div>
               
