@@ -20,7 +20,8 @@ class Service(models.Model):
 
 class Commande(models.Model):
     service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='services_commandes')
-    client = models.OneToOneField(Service, on_delete=models.CASCADE, related_name='client_commandes')
+    client = models.OneToOneField(Client, on_delete=models.CASCADE, related_name='client_commandes')
+    date = models.DateField(auto_now_add=True)
 
 
 

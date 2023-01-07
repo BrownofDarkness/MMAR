@@ -16,7 +16,24 @@ class ClientView(View):
     template_name = 'client.html'
 
     def get(self, request, *args, **kwargs):
+        clients = Client.objects.all()
+        return render(request, self.template_name, {'clients':clients})
+
+    def post(self, request, *args, **kwargs):
         return render(request, self.template_name)
+
+
+class ClientDetailView(View):
+    template_name = 'detailsclient.html'
+
+    def get(self, request, pk,*args, **kwargs):
+        client = Client.objects.get(pk=pk)
+        comandes = client.client_commandes
+        context = {
+            'client':client,
+            'comandes': comandes
+        }
+        return render(request, self.template_name,context)
 
     def post(self, request, *args, **kwargs):
         return render(request, self.template_name)
