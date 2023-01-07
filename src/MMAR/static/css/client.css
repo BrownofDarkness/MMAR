@@ -321,7 +321,7 @@ td{
 
 
 button{
-    width: 5rem;
+    width: 20%;
     height: 2.5rem;
     background:var(--color-dark);
     border-radius: 5px;
@@ -340,7 +340,7 @@ button{
 }
 
 /* Full-width input fields */
-input[type=text], input[type=password], input[type=file], input[type=date] {
+input[type=text], input[type=password], input[type=file], input[type=date], input[type=number] {
   width: 100%;
   padding: 15px;
   margin: 5px 0 22px 0;
@@ -358,6 +358,17 @@ select{
     background: #f1f1f1;
 }
 
+textarea{
+    width: 100%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+
+
 
 /* Overwrite default styles of hr */
 hr {
@@ -366,19 +377,11 @@ hr {
 }
 
 /* Set a style for the submit/register button */
-.registerbtn {
-  background-color:var(--main-color);
-  color: white;
-  padding: 16px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}
 
-.registerbtn:hover {
-  opacity:1;
+
+button:hover {
+  background: blue;
+  color: red;
 }
 
 /* Add a blue text color to links */

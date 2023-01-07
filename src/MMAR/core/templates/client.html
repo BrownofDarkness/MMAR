@@ -45,51 +45,13 @@
                                         <th>Jour de visite</th>
                                         <th>Prix</th>
                                         <th>Modifier</th>
+                                        <th>details</th>
                                         <th>Supprimer</th>
                                         <th>Frequence de visite</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                   <tr>
-                                        <td>6576543456</td>
-                                        <td>agnes</td>
-                                        <td>tresse</td>
-                                        <td>23 juillet 2022</td>
-                                        <td>10.000</td>
-                                        <td><button><a href="{% url 'new_command' %}">nouveau</a></button></td>
-                                        <td><button onclick="document.getElementById('id03').style.display='block'">Supprimer</button></td>
-                                        <td><center>10</center></td>
-                                   </tr>
-                                   <tr>
-                                        <td>2354657843734</td>
-                                        <td>mileine</td>
-                                        <td>massage</td>
-                                        <td>12 aout 2022</td>
-                                        <td>25.000</td>
-                                        <td><button><a href="{% url 'new_command' %}">nouveau</a></button></td>
-                                        <td><button onclick="document.getElementById('id03').style.display='block'">Supprimer</button></td>
-                                        <td><center>10</center></td>
-                                   </tr>
-                                   <tr>
-                                        <td>223345566</td>
-                                        <td>baba</td>
-                                        <td>coifffff</td>
-                                        <td>24 septembre 2022</td>
-                                        <td>5.000</td>
-                                        <td><button><a href="{% url 'new_command' %}">nouveau</a></button></td>
-                                        <td><button onclick="document.getElementById('id03').style.display='block'">Supprimer</button></td>
-                                        <td><center>10</center></td>
-                                   </tr>
-                                   <tr>
-                                        <td>23455667778</td>
-                                        <td>barbie</td>
-                                        <td>ongle</td>
-                                        <td>30 deembre 1022</td>
-                                        <td>6.000</td>
-                                        <td><button><a href="{% url 'new_command' %}">nouveau</a></button></td>
-                                        <td><button onclick="document.getElementById('id03').style.display='block'">Supprimer</button></td>
-                                        <td><center>10</center></td>
-                                   </tr>
+                                   
                                    <tr>
                                         <td>374654758465</td>
                                         <td>mimi</td>
@@ -97,6 +59,7 @@
                                         <td>1 janvier 2023</td>
                                         <td>20.000</td>
                                         <td><button><a href="{% url 'new_command' %}">nouveau</a></button></td>
+                                        <td><button><a href="detailsclient.html">details</a></button></td>
                                         <td><button onclick="document.getElementById('id03').style.display='block'">Supprimer</button></td>
                                         <td><center>10</center></td>
                                    </tr>
@@ -129,13 +92,6 @@
 
                     <label for="service"><b>service sollicite</b></label>
                     <select name="service" id="">service</select><br>
-
-                    <label for="prix"><b>prix du service</b></label>
-                    <select name="prix" id=""></select><br>
-
-                    <label for="date"><b>date de visite</b></label>
-                    <input type="date" placeholder="Entrer la date de visite du client" name="date" required>
-           
                     
                     <div class="clearfix">
                       <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>

@@ -38,14 +38,15 @@
             <div class="container">
                 {% csrf_token %}
                 {{form.as_p}}
-
+              <button><a href="{% url 'services' %}">retour</a></button>
               <button type="submit" class="registerbtn">submit</button>
+              
             </div>
           
            
           </form>
 
-          <button><a href="{% url 'services' %}">retour</a></button>
+          
         </main>
        </div>
    
