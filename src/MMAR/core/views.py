@@ -6,7 +6,21 @@ from django.contrib import messages
 
 
 class Home(View):
+    template_name = 'homepage.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+
+class SocieteView(View):
     template_name = 'societe.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+
+class LoginView(View):
+    template_name = 'connexion.html'
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
