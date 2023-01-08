@@ -60,7 +60,7 @@
                                         <td>{{item.last_command.service.prix}}</td>
                                         <td><button><a href="client/{{item.client.id}}/new_command">nouveau</a></button></td>
                                         <td><button><a href="client/{{item.client.id}}">details</a></button></td>
-                                        <td><button><a href="client/{{item.client.id}}/delete"> Supprimer</a></button></td>
+                                        <td> <button onclick="document.getElementById('id01').style.display='block'">Supprimer</button></td>
                                         <td><center>{{item.frequence}}</center></td>
                                    </tr>
                                 {% endfor %}
@@ -72,7 +72,7 @@
                                   <td>20.000</td>
                                   <td><button><a href="client/1/new_command">nouveau</a></button></td>
                                   <td><button><a href="client/{{item.id}}">details</a></button></td>
-                                  <td><button onclick="document.getElementById('id03').style.display='block'">Supprimer</button></td>
+                                  <td> <button onclick="document.getElementById('id01').style.display='block'">Supprimer</button></td>
                                   <td><center>10</center></td>
                              </tr>
                                 </tbody>
@@ -83,6 +83,17 @@
                 
                 </div>
             </section>
+            <!--div supprimer-->
+            <div id="id01" class="sup">
+              <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">fermer</span>
+               <div class="sup1">
+                <h4>Voulez vous vraiment supprimer?</h4>
+                <div class="but">
+                      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Annuler</button>
+                      <button type="submit" class="signup">confirmer</button>
+                </div>
+               </div>
+            </div>
 
             <!--formulaire ajouter-->
             <div id="id02" class="modal">
@@ -121,5 +132,18 @@
           }
         }
         </script>
+
+<script>
+
+  // Get the modal
+  var modal = document.getElementById('id01');
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  </script>
 </body>
 </html>
