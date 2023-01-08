@@ -1,0 +1,356 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap);
+:root{
+    --main-color: rgb(4, 18, 39);
+    --color-dark: rgb(4, 18, 39);
+    --text-grey:  rgb(109, 182, 204);
+}
+*{
+    font-family: 'Poppins', sans-serif;
+   margin: 0;
+   padding: 0;
+   text-decoration: none;
+   list-style: none;
+   box-sizing: border-box;
+}
+.sidebar-toggle{
+    display: none;
+}
+
+
+.sidebar{
+    height: 100%;
+    width: 240px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    background: var(--main-color);
+    color:white;
+    overflow-y: auto;
+    transition: width 500ms;
+}
+.sidebar-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    padding: 0rem 1rem;
+}
+.sidebar-menu{
+    padding: 1rem;
+}
+.sidebar li{
+    margin-bottom: 1.2rem;
+}
+.sidebar a{
+    color: white;
+    font-size: .9rem;
+}
+
+.sidebar a span:last-child{
+    padding-right: .6rem;
+}
+a:hover{
+    color: red;
+}
+span:hover{
+    color: red;
+}
+
+#sidebar-toggle:checked ~ .sidebar {
+    width: 60px;
+}
+
+#sidebar-toggle:checked ~ .sidebar .sidebar-header h3 span,
+#sidebar-toggle:checked ~ .sidebar li span:last-child
+{
+        display: none; 
+       
+}
+
+#sidebar-toggle:checked ~ .sidebar .sidebar-header,
+#sidebar-toggle:checked ~ .sidebar li
+{
+      display: flex;
+      justify-content: center;
+       
+}
+
+#sidebar-toggle:checked ~ .main-content {
+    margin-left: 60px;
+}
+
+#sidebar-toggle:checked ~ .main-content header {
+    width: calc(100% - 60px);
+    transition: width 500ms;
+}
+
+.main-content{
+   background: rgb(228, 235, 240);
+    margin-left: 240px;
+    transition: margin-left 500ms;
+}
+header{
+    position: fixed;
+    right: 0px;
+    top: 0;
+    z-index: 100;
+    width: calc(100% - 240px);
+    background: rgb(228, 235, 240);
+    height: 60px;
+    padding: 0rem 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: width 500ms;
+}
+.search-wrapper{
+    display: flex;
+    align-items: center;
+    background: white;
+}
+.main-content input{
+    border: 0;
+    outline: 0;
+    padding: 1rem;
+    height: 30px;
+}
+.social-icons{
+    display: flex;
+    align-items: center;
+}
+.social-icons span,
+.social-icons div{
+    margin-left: 1.2rem;
+}
+.social-icons div{
+    height: 38px;
+    width: 38px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../img/images.jpg);
+    border-radius: 50%;
+}
+.cardsimg img{
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+}
+.cardsimg{
+  display: grid;
+  place-items: center;
+}
+
+main{
+    margin-top: 60px;
+    min-height: 90vh;
+    padding: 1rem 3rem;
+    background: url(../img/manucure-maison.png);
+    background-size: 100%;
+}
+.cards{
+ 
+   display: grid;
+   grid-template-columns: repeat(2, 1fr);
+   grid-gap: 3rem;
+   
+}
+.card{
+  background: rgba(12, 10, 10, 0.9);
+  padding: 2rem 1rem;
+  border-radius: 2rem;
+}
+.cards-info{
+  text-align: center;
+  color: white;
+  margin-top: .6rem;
+}
+.cards-info h2{
+  color: yellow;
+  font-size: 3rem;
+}
+.cards-info small{
+  display: inline-block;
+  font-weight: 500;
+}
+.chart-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 3rem;
+  color: white;
+  grid-gap: 2rem;
+}
+.chart-follow, .chart-sales{
+  background: rgba(12, 10, 10, 0.9) ;
+  padding: 1rem;
+  color: white;
+  border-radius: 2rem;
+}
+.chart-saleheard{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid white;
+  margin-bottom: 1rem;
+}
+@media only screen and (max-width: 1200px)
+    
+{
+    
+    
+    .sidebar {
+    width: 60px;
+    z-index: 150;
+    }
+
+    .sidebar .sidebar-header h3 span,
+    .sidebar li span:last-child
+    {
+            display:none; 
+        
+    }
+    .sidebar .sidebar-header,
+    .sidebar li
+    {
+        display: flex;
+        justify-content: center;
+        
+    }
+
+    .main-content {
+        margin-left: 60px;
+    }
+    .main-content header {
+        left: 60px;
+        width: calc(100% - 60px);
+    }
+    #sidebar-toggle:checked ~ .sidebar {
+        width: 240px;
+    }
+
+    #sidebar-toggle:checked ~ .sidebar .sidebar-header h3 span,
+    #sidebar-toggle:checked ~ .sidebar li span:last-child
+    {
+            display:inline; 
+        
+    }
+
+    #sidebar-toggle:checked ~ .sidebar .sidebar-header
+
+    {
+        display: flex;
+        justify-content: space-between;
+        
+    }
+
+    #sidebar-toggle:checked ~ .sidebar li
+    {
+        display: block;
+    
+        
+    }
+
+    #sidebar-toggle:checked ~ .main-content {
+        margin-left: 60px;
+    }
+ 
+    .chart-grid{
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 3rem;
+      color: white;
+      grid-gap: 2rem;
+    }
+
+    
+
+}
+
+@media only screen and (max-width: 1124px)
+    
+{
+   
+        
+.chart-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 2rem;
+  color: white;
+  grid-gap: 1rem;
+}
+ 
+}
+@media only screen and (max-width: 860px)
+    
+{
+   
+        
+.chart-grid{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  margin-top: 3rem;
+  color: white;
+  grid-gap: 1rem;
+}
+ 
+}
+
+@media only screen and (max-width: 600px)
+    
+{
+    main{
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+          
+.chart-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 3rem;
+  color: white;
+  grid-gap: 1rem;
+}
+
+.cards{
+ 
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 3rem;
+  
+}
+   
+
+}
+
+@media only screen and (max-width: 450px)
+    
+{
+    
+     main{
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+          
+.chart-grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  margin-top: 3rem;
+  color: white;
+  grid-gap: 1rem;
+}
+
+
+.cards{
+ 
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 3rem;
+  
+}
+
+}
+
+

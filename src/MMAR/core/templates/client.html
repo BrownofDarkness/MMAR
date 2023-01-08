@@ -60,7 +60,7 @@
                                         <td>{{item.last_command.service.prix}}</td>
                                         <td><button><a href="client/{{item.client.id}}/new_command">nouveau</a></button></td>
                                         <td><button><a href="client/{{item.client.id}}">details</a></button></td>
-                                        <td><button onclick="document.getElementById('id03').style.display='block'">Supprimer</button></td>
+                                        <td><button><a href=""> Supprimer</a></button></td>
                                         <td><center>{{item.frequence}}</center></td>
                                    </tr>
                                 {% endfor %}
@@ -103,31 +103,7 @@
 
               <button onclick="document.getElementById('id02').style.display='block'">Ajouter</button>
 
-               <!--formulaire suprimer-->
-
-               <div id="id03" class="modal">
-                <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">fermer</span>
-                <form class="modal-content" action="" method="post">
-                  <div class="container">
-                    <h6>Remplissez moi</h6>
-                   
-                   
-                    <label for="id"><b>telephone</b></label>
-                    <input type="text" placeholder="Entrer numero telephone client" name="id" required>
               
-                    <label for="nom"><b>nom</b></label>
-                    <input type="text" placeholder="Entrer le nom du client" name="nom" required>
-    
-              
-                    
-                    <div class="clearfix">
-                      <button type="button" onclick="document.getElementById('id03').style.display='none'" class="cancelbtn">Cancel</button>
-                      <button type="submit" class="signup">enregistre</button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-
               
         </main>
        </div>
@@ -137,16 +113,6 @@
 
         // Get the modal
         var modal = document.getElementById('id02');
-        
-        // When the user clicks anywhere outside of the modal, close it
-        window.onclick = function(event) {
-          if (event.target == modal) {
-            modal.style.display = "none";
-          }
-        }
-
-         // Get the modal
-         var modal = document.getElementById('id03');
         
         // When the user clicks anywhere outside of the modal, close it
         window.onclick = function(event) {
