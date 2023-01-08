@@ -49,7 +49,7 @@ class ClientView(View):
         form = self.form_class(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('services')
+            return redirect('client')
         return render(request, self.template_name, {'form': form})
 
 
