@@ -31,28 +31,24 @@ class ClientView(View):
     form_class = Clientform
 
     def get(self, request, *args, **kwargs):
-        clients = Client.objects.all()
-        clientview = {
-            'client': '',
-            'last_command':'',
-            'frequence': 0
-        }
+        clients = Client.objects.all().order_by('-id')
         list =[]
 
         for item in clients:
-            clientview['client']= item
+            clientview = {'client': item, 'last_command': '', 'frequence': 0}
             if Commande.objects.filter(client=item):
                 commande =Commande.objects.filter(client=item).last()
                 print(commande)
                 clientview['last_command'] = Commande.objects.filter(client=item).last()
                 clientview['frequence'] = Commande.objects.filter(client=item).count()
+
             list.append(clientview)
         return render(request, self.template_name, {'clients': list, 'form': self.form_class()})
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST, request.FILES)
         if form.is_valid():
-            form.save(request)
+            form.save()
             return redirect('services')
         return render(request, self.template_name, {'form': form})
 
