@@ -16,7 +16,8 @@
     <div class="tout">
         <main>
             <div class="contain">
-            <form action="">
+            <form action="" method="post" enctype="multipart/form-data" >
+                {% csrf_token %}
                 <div class="container">
                   <h1>Connexion</h1>
                  

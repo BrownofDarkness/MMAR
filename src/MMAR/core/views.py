@@ -1,8 +1,13 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .forms import Clientform, Serviceform,Commandform
 from django.views import View
 from .models import Client, Service, Commande
 from django.contrib import messages
+from django.utils.decorators import method_decorator
+from django.contrib.auth import get_user_model, authenticate, logout, login
+
+User = get_user_model()
 
 
 class Home(View):
@@ -15,8 +20,15 @@ class Home(View):
 class SocieteView(View):
     template_name = 'societe.html'
 
+    @method_decorator(login_required)
     def get(self, request, *args, **kwargs):
-        return render(request, self.template_name)
+        services_count = Service.objects.all().count()
+        client_count = Client.objects.all().count()
+        context = {
+            'clients': client_count,
+            'services': services_count
+        }
+        return render(request, self.template_name, context)
 
 
 class LoginView(View):
@@ -25,7 +37,18 @@ class LoginView(View):
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
 
+    def post(self, request, *args, **kwargs):
+        username = request.POST['nom']
+        password = request.POST['psw']
+        user = authenticate(request, username=username, password=password)
+        if user is not None and user.is_active:
+            login(request, user)
+            messages.success(request, "connexion réussi")
+            return redirect('societe')
+        return render(request, self.template_name)
 
+
+@method_decorator(login_required(login_url='login'),  name='get')
 class ClientView(View):
     template_name = 'client.html'
     form_class = Clientform
@@ -52,7 +75,7 @@ class ClientView(View):
             return redirect('client')
         return render(request, self.template_name, {'form': form})
 
-
+@method_decorator(login_required(login_url='login'),  name='get')
 class ClientDetailView(View):
     template_name = 'detailsclient.html'
 
@@ -71,6 +94,23 @@ class ClientDetailView(View):
         return render(request, self.template_name)
 
 
+@method_decorator(login_required(login_url='login'),  name='get')
+class ClientDeleteView(View):
+    template_name = 'supprimercli.html'
+
+    def get(self, request, pk,*args, **kwargs):
+        client = Client.objects.get(pk=pk)
+        comandes = Commande.objects.filter(client=client.id)
+        context = {
+            'client': client,
+
+        }
+        return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+@method_decorator(login_required(login_url='login'),  name='get')
 class ServicesView(View):
     template_name = 'services.html'
     form_class = Serviceform
@@ -86,7 +126,7 @@ class ServicesView(View):
             return redirect('services')
         return render(request, self.template_name, {'form': form})
 
-
+@method_decorator(login_required(login_url='login'),  name='get')
 class MdService(View):
     template_name = 'modifierservice.html'
     form_class = Serviceform
@@ -104,7 +144,7 @@ class MdService(View):
             return redirect('clients')
         return render(request, self.template_name, {'form': form})
 
-
+@method_decorator(login_required(login_url='login'),  name='get')
 class Newcommand(View):
     template_name = 'nouveau.html'
     form_class = Commandform
@@ -120,6 +160,7 @@ class Newcommand(View):
         return render(request, self.template_name, {'form': form})
 
 
+@method_decorator(login_required(login_url='login'),  name='get')
 class AccountView(View):
     template_name = 'compte.html'
 

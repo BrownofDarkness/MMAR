@@ -1,6 +1,8 @@
 from django import forms
 from .models import Client, Service, Commande
+from django.contrib.auth import get_user_model
 
+User = get_user_model()
 
 class Clientform(forms.ModelForm):
     name = forms.CharField(label='Nom client', max_length=155, required=True, widget=forms.TextInput())

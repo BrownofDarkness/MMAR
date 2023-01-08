@@ -60,7 +60,7 @@
                                         <td>{{item.last_command.service.prix}}</td>
                                         <td><button><a href="client/{{item.client.id}}/new_command">nouveau</a></button></td>
                                         <td><button><a href="client/{{item.client.id}}">details</a></button></td>
-                                        <td><button><a href=""> Supprimer</a></button></td>
+                                        <td><button><a href="client/{{item.client.id}}/delete"> Supprimer</a></button></td>
                                         <td><center>{{item.frequence}}</center></td>
                                    </tr>
                                 {% endfor %}
