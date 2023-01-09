@@ -31,9 +31,10 @@
                        
             <section class="recent">
                 <div class="activity-grid">
-                        
+                       
                     <div class="activity-card">
-                        <h3>liste desproduis et prix</h3>
+                      <div class="butu"> <div style="margin-bottom: 1rem;">  <button onclick="document.getElementById('id02').style.display='block'">Ajouter</button></div><br></div>
+                       
                         <table>
                             <thead>
                                 <tr>
@@ -68,6 +69,8 @@
                         <h6>Remplissez moi</h6>
                           {% csrf_token %}
                           {{form.as_p}}
+                          <label for="name">Categorie</label>
+                          <select name="" id=""></select>
                         <div class="clearfix">
                           <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
                           <button type="submit" class="signup">enregistre</button>
@@ -79,7 +82,6 @@
                   
             </section>
 
-            <button onclick="document.getElementById('id02').style.display='block'">Ajouter</button>
         </main>
        </div>
    
