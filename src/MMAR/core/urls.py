@@ -2,8 +2,7 @@ from django.urls import path, include
 from .views import Home, ClientView, ServicesView, AccountView, MdService, Newcommand, ClientDetailView, SocieteView, LoginView, ClientDeleteView
 
 urlpatterns = [
-    path("", Home.as_view(), name="home"),
-    path("login/", LoginView.as_view(), name="login"),
+    path("", LoginView.as_view(), name="login"),
     path("dashbord/", SocieteView.as_view(), name="societe"),
     path("dashbord/client", ClientView.as_view(), name="client"),
     path('dashbord/service', ServicesView.as_view(), name='services'),

@@ -141,8 +141,9 @@ class MdService(View):
         form = self.form_class(request.POST or None, instance=obj)
         if form.is_valid():
             form.save()
-            return redirect('clients')
+            return redirect('services')
         return render(request, self.template_name, {'form': form})
+
 
 @method_decorator(login_required(login_url='login'),  name='get')
 class Newcommand(View):
