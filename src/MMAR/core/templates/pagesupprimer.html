@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=!, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
+    <link rel="stylesheet" href="{% static 'css/client.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" id="sidebar-toggle">
+    {% include 'sidebar.html' %}
+       <div class="main-content">
+        <header>
+            <form action="" method="" class="search-wrapper">
+                <span class="ti-search"></span>
+                <input type="search" placeholder="search">
+            </form>
+            <div class="social-icons">
+                <span class="ti-bell"></span>
+                <span class="ti-comment"></span>
+                <div></div>
+            </div>
+           
+        </header>
+        <main>
+            <h2 class="dash-title">modifier votre profil</h2>
+            <div class="dash-cards">
+                
+               
+            
+             
+        </div>
+        <form action="" method="">
+            <div class="container">
+             <h4>Voulez vous vraiment supprimer?</h4>          
+              <button><a href="{% url 'client' %}">retour</a></button>
+              <button type="submit" class="registerbtn">enregistre</button>
+            </div>
+          
+           
+          </form>
+        </main>
+       </div>
+   
+    
+</body>
+</html>

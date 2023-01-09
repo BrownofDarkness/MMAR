@@ -104,7 +104,7 @@ class ClientDetailView(View):
 
 @method_decorator(login_required(login_url='login'),  name='get')
 class ClientDeleteView(View):
-    template_name = 'supprimercli.html'
+    template_name = 'pagesupprimer.html'
 
     def get(self, request, pk,*args, **kwargs):
         client = Client.objects.get(pk=pk)

@@ -61,7 +61,7 @@
                                         <td>{{item.last_command.service.prix}}</td>
                                         <td><button><a href="client/{{item.client.id}}/new_command">nouveau</a></button></td>
                                         <td><button><a href="client/{{item.client.id}}">details</a></button></td>
-                                        <td> <button onclick="document.getElementById('id01').style.display='block'">Supprimer</button></td>
+                                        <td><button><a href="client/{{item.client.id}}/delete">supprimer</a></button></td>
                                         <td><center>{{item.frequence}}</center></td>
                                    </tr>
                                 {% endfor %}
@@ -74,23 +74,7 @@
                 </div>
             </section>
             <!--formulaire de suppression-->
-            <div id="id01" class="sup">
-              <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">fermer</span>
-              <form action="" method="" class="sup1">
-                <h4>Voulez vous vraiment supprimer? <span id="userId"></span></h4>
-                <div class="but">
-                      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Annuler</button>
-                      <button type="submit" class="signup">confirmer</button>
-                </div>
-                  <script>
-
-                      var userId = document.getElementById('userId')
-                      console.log(selectedId)
-                      userId.innerHtml = selectedId;
-                  </script>
-              </form>
-            </div>
-
+            
             <!--formulaire ajouter-->
             <div id="id02" class="modal">
                 <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">fermer</span>
