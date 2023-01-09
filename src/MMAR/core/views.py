@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .forms import Clientform, Serviceform,Commandform
 from django.views import View
 from .models import Client, Service, Commande
@@ -108,15 +108,17 @@ class ClientDeleteView(View):
 
     def get(self, request, pk,*args, **kwargs):
         client = Client.objects.get(pk=pk)
-        comandes = Commande.objects.filter(client=client.id)
         context = {
             'client': client,
-
         }
         return render(request, self.template_name, context)
 
-    def post(self, request, *args, **kwargs):
-        return render(request, self.template_name)
+    def post(self, request, pk, *args, **kwargs):
+        obj = get_object_or_404(Client, pk=pk)
+        obj.delete()
+        return redirect('client')
+
+
 
 @method_decorator(login_required(login_url='login'),  name='get')
 class ServicesView(View):

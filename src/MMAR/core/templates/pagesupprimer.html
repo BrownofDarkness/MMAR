@@ -27,18 +27,19 @@
            
         </header>
         <main>
-            <h2 class="dash-title">modifier votre profil</h2>
+            <h2 class="dash-title">modifier votre entreprise</h2>
             <div class="dash-cards">
                 
                
             
              
         </div>
-        <form action="" method="">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
             <div class="container">
-             <h4>Voulez vous vraiment supprimer?</h4>          
+             <h4>Voulez vous vraiment supprimer le client {{client.name}}?</h4>
               <button><a href="{% url 'client' %}">retour</a></button>
-              <button type="submit" class="registerbtn">enregistre</button>
+              <button type="submit" class="registerbtn">Supprimer</button>
             </div>
           
            
