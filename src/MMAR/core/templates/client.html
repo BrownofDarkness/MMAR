@@ -15,10 +15,10 @@
       {% include 'sidebar.html' %}
        <div class="main-content">
         <header>
-            <div class="search-wrapper">
+            <form action="" method="" class="search-wrapper">
                 <span class="ti-search"></span>
                 <input type="search" placeholder="search">
-            </div>
+            </form>
             <div class="social-icons">
                 <span class="ti-bell"></span>
                 <span class="ti-comment"></span>
@@ -83,16 +83,16 @@
                 
                 </div>
             </section>
-            <!--div supprimer-->
+            <!--formulaire de suppression-->
             <div id="id01" class="sup">
               <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">fermer</span>
-               <div class="sup1">
+              <form action="" method="" class="sup1">
                 <h4>Voulez vous vraiment supprimer?</h4>
                 <div class="but">
                       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Annuler</button>
                       <button type="submit" class="signup">confirmer</button>
                 </div>
-               </div>
+              </form>
             </div>
 
             <!--formulaire ajouter-->
