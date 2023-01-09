@@ -7,6 +7,8 @@ from django.contrib import messages
 from django.utils.decorators import method_decorator
 from django.contrib.auth import get_user_model, authenticate, logout, login
 
+from .filters import ClientFilterSearch
+
 User = get_user_model()
 
 
@@ -55,8 +57,14 @@ class ClientView(View):
 
     def get(self, request, *args, **kwargs):
         clients = Client.objects.all().order_by('-id')
+
+        name = self.request.GET.get('client')
+        if name:
+            clients = clients.filter(name__icontains=name)
+
         list =[]
 
+        print(clients)
         for item in clients:
             clientview = {'client': item, 'last_command': '', 'frequence': 0}
             if Commande.objects.filter(client=item):
