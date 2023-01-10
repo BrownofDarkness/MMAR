@@ -43,15 +43,15 @@
                                     <tr>
                                         <th>service sollicite</th>
                                         <th>Jour de visite</th>
-                                        <th>Prix</th>
+                                        <th>Montant</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                 {% for item in comandes%}
                                    <tr>
                                         <td>{{item.service}}</td>
-                                        <td>{{item.created_at}}</td>
-                                        <td>{{item.service.prix}}</td>
+                                        <td>{{item.done_at}}</td>
+                                        <td>{{item.amount}}</td>
                                    </tr>
                                 {% endfor %}
                                   

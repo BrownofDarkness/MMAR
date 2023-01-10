@@ -1,5 +1,5 @@
 from django import forms
-from .models import Client, Service, Commande, Prestation, Category
+from .models import Client, Service, Prestation, Category
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
@@ -23,19 +23,6 @@ class Serviceform(forms.ModelForm):
         model = Service
         fields = ['name','prix', 'category']
 
-
-class Commandform(forms.ModelForm):
-
-    class Meta:
-        model = Commande
-        fields = ['service']
-
-    def save(self,pk, commit=True):
-        service = self.cleaned_data['service']
-        client = Client.objects.get(pk=pk)
-        commande = Commande.objects.create(service=service, client=client)
-
-        return commande
 
 
 class Categoryform(forms.ModelForm):

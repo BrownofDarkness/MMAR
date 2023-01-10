@@ -32,14 +32,6 @@ class Service(models.Model):
         return self.name
 
 
-class Commande(models.Model):
-    service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='services_commandes')
-    created_at = models.DateField(auto_now_add=True)
-    client = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='client_commandes')
-
-    def __str__(self):
-        return f"command {self.id} of {self.client}"
-
 
 class Prestation(models.Model):
     prestataire = models.CharField(max_length=155)

@@ -1,8 +1,8 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import Clientform, Serviceform, Commandform
+from .forms import Clientform, Serviceform
 from django.views import View
-from .models import Client, Service, Commande, Prestation
+from .models import Client, Service, Prestation, Category
 from django.utils.decorators import method_decorator
 from django.contrib.auth import get_user_model, authenticate, logout, login
 
@@ -99,13 +99,11 @@ class ClientView(View):
 
         liste = []
 
-        print(clients)
         for item in clients:
             clientset = {'client': item, 'last_command': '', 'frequence': 0}
             prestations = Prestation.objects.filter(client=item)
             if prestations:
                 prestation = prestations.last()
-                print(prestation)
                 clientset['last_command'] = prestations.last()
                 clientset['frequence'] = prestations.count()
 
@@ -126,7 +124,7 @@ class ClientDetailView(View):
 
     def get(self, request, pk, *args, **kwargs):
         client = Client.objects.get(pk=pk)
-        comandes = Commande.objects.filter(client=client.id)
+        comandes = Prestation.objects.filter(client=client.id)
         context = {
             'client': client,
             'comandes': comandes.order_by('-id'),
@@ -193,22 +191,6 @@ class MdService(View):
 
 
 @method_decorator(login_required(login_url='login'), name='get')
-class Newcommand(View):
-    template_name = 'nouveau.html'
-    form_class = Commandform
-
-    def get(self, request, pk, *args, **kwargs):
-        return render(request, self.template_name, {'form': self.form_class()})
-
-    def post(self, request, pk, *args, **kwargs):
-        form = self.form_class(request.POST or None)
-        if form.is_valid():
-            form.save(pk)
-            return redirect('client')
-        return render(request, self.template_name, {'form': form})
-
-
-@method_decorator(login_required(login_url='login'), name='get')
 class AccountView(View):
     template_name = 'compte.html'
 
@@ -224,7 +206,11 @@ class CategoryView(View):
     template_name = 'categorie.html'
 
     def get(self, request, *args, **kwargs):
-        return render(request, self.template_name)
+        categories = Category.objects.all()
+        return render(request, self.template_name, {'categories':categories})
 
     def post(self, request, *args, **kwargs):
-        return render(request, self.template_name)
+        name = request.POST['name']
+        categ = Category.objects.create(name=name)
+
+        return redirect('category')

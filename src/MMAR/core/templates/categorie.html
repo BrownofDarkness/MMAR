@@ -27,10 +27,11 @@
            
         </header>
         <main>
-            <form class="form">
+            <form class="form" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
                 <h3>Ajouter une categorie</h3>
-               <label for="">entrer le nom de la categorie</label>
-               <input type="text" placeholder="entrer une nouvelle categorie">
+               <label for="name">entrer le nom de la categorie</label>
+               <input type="text" placeholder="entrer une nouvelle categorie" name="name" id="name">
                <button type="submit">ajouter</button>
             </form>
             
@@ -44,26 +45,12 @@
                                   </tr>
                               </thead>
                               <tbody>
+                                {% for item in categories %}
                                  <tr>
-                                      <td>coiffure homme</td>
+                                      <td>{{item}}</td>
                                      
                                  </tr>
-                                 <tr>
-                                      <td>coiffure femme</td>
-                                      
-                                 </tr>
-                                 <tr>
-                                      <td>coiffure enfant</td>
-                                     
-                                 </tr>
-                                 <tr>
-                                      <td>onglerie</td>
-
-                                 </tr>
-                                 <tr>
-                                      <td>soins</td>
-                                     
-                                 </tr>
+                                {%endfor%}
                               </tbody>
                           </table></center>
                         </div>
