@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=!, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
+    <link rel="stylesheet" href="{% static 'css/categorie.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" id="sidebar-toggle">
+    {% include 'sidebar.html' %}
+       <div class="main-content">
+        <header>
+            <div class="search-wrapper">
+                <span class="ti-search"></span>
+                <input type="search" placeholder="search">
+            </div>
+            <div class="social-icons">
+                <span class="ti-bell"></span>
+                <span class="ti-comment"></span>
+                <div></div>
+            </div>
+           
+        </header>
+        <main>
+            <form class="form">
+                <h3>Ajouter une categorie</h3>
+               <label for="">entrer le nom de la categorie</label>
+               <input type="text" placeholder="entrer une nouvelle categorie">
+               <button type="submit">ajouter</button>
+            </form>
+            
+                        <div class="table-responsive">
+                           <center> <table>
+                            <h3>liste de catégorie</h3>
+                              <thead>
+                                  <tr>
+                                      <th>Nom de la catégorie</th>
+                                     
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                 <tr>
+                                      <td>coiffure homme</td>
+                                     
+                                 </tr>
+                                 <tr>
+                                      <td>coiffure femme</td>
+                                      
+                                 </tr>
+                                 <tr>
+                                      <td>coiffure enfant</td>
+                                     
+                                 </tr>
+                                 <tr>
+                                      <td>onglerie</td>
+
+                                 </tr>
+                                 <tr>
+                                      <td>soins</td>
+                                     
+                                 </tr>
+                              </tbody>
+                          </table></center>
+                        </div>
+                        
+                    </div> 
+                   
+                </div>
+            </section>
+          
+        </main>
+       </div>
+   
+    
+      
+</body>
+</html>
