@@ -198,7 +198,7 @@ main{
     grid-column-gap: 1.5rem;
 }
 .activity-card{
-    background: #fff;
+    
     border-radius: 7px;
 
 }
@@ -209,6 +209,7 @@ main{
 .activity-card table{
     border-collapse: collapse;
     width: 100%;
+    background: white;
 }
 .activity-card thead{
     background-color: var(--color-dark);
@@ -524,15 +525,16 @@ input[type=text], input[type=password], input[type=file], input[type=date], inpu
     border: none;
     background: #f1f1f1;
   }
+
   
   select{
-      width: 100%;
-      padding: 15px;
-      margin: 5px 0 22px 0;
-      display: inline-block;
-      border: none;
-      background: #f1f1f1;
-  }
+    width: 100%;
+    padding: 5px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
   
   textarea{
       width: 100%;
@@ -585,4 +587,9 @@ input[type=text], input[type=password], input[type=file], input[type=date], inpu
 
 }
    
+}
+
+.butu{
+    float: right;
+    margin-bottom: 0rem;
 }

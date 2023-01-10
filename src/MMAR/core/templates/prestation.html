@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=!, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lykmapipo/themify-icons@0.1.2/css/themify-icons.css">
+    <link rel="stylesheet" href="{% static 'css/prestation.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    <input type="checkbox" id="sidebar-toggle">
+    {% include 'sidebar.html' %}
+   
+       <div class="main-content">
+        <header>
+            <form class="fd">
+                <span></span>
+                
+            </form>
+            <div class="social-icons">
+                <span class="ti-bell"></span>
+                <span class="ti-comment"></span>
+                <div></div>
+            </div>
+           
+        </header>
+        <main>
+           
+        <div class="tout">     
+                   
+
+                    <div class="recherche">
+                    <form class="search-wrapper">
+                        <button type="submit"><span class="ti-search"></span></button>
+                       <select name="" id=""></select>
+                    </form>
+
+                    <form class="search-wrapper">
+                        <button type="submit"><span class="ti-search"></span></button>
+                        <select name="" id=""></select>
+                    </form>
+                </div>
+                <!--formulaire general-->
+                <form  class="tout2" action="">
+                    <!--div client-->
+                    <div class="contenu">
+                       
+                            
+                                <div class="services">
+                                    <h4>information client</h4>
+                                    <center><hr></center>
+                                    
+                                        <label for="name">Nom du client</label>
+                                        <input type="text">
+    
+                                        <label for="number">telephone client</label>
+                                        <input type="number">
+    
+                                        <label for="name">Etudiant/Eleve</label>
+                                        <select name="" id="">oui</select>
+                                    </div>
+                              
+                               
+                        <!--div service-->
+                      
+                            
+                            <div class="services">
+                            <h4>information service</h4>
+                            <center><hr></center>
+                                
+                                    <label for="name">Nom du service</label>
+                                    <input type="text">
+    
+                                    <label for="number">Prix fixe</label>
+                                    <input type="number"><br>
+    
+                                    <label for="name">categorie du service</label>
+                                    <input type="text">
+                                </div>
+                            
+                        </div>
+                   
+                  
+                <!--div prespation-->
+                <div class="prestation">
+                    <h4>information sur la prestation</h4>
+                    <center><hr></center>
+                    <label for="name">Nom du prestateur</label>
+                    <input type="text">
+
+                    <label for="number">Montant net à payer</label>
+                    <input type="number">
+
+                    <label for="text">Niveau de satisfaction</label>
+                    <select name="" id=""></select>
+
+                    <label for="date">Date du jour</label>
+                    <input type="date">
+
+                    
+                </div>
+                <button type="submit">enregistrer</button>
+            </form>        
+           
+        </div>
+           
+          </div>
+        </main>
+       </div>
+   
+    
+</body>
+</html>
