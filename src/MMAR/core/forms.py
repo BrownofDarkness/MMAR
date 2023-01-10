@@ -1,8 +1,9 @@
 from django import forms
-from .models import Client, Service, Commande
+from .models import Client, Service, Commande, Prestation, Category
 from django.contrib.auth import get_user_model
 
 User = get_user_model()
+
 
 class Clientform(forms.ModelForm):
     name = forms.CharField(label='Nom client', max_length=155, required=True, widget=forms.TextInput())
@@ -12,7 +13,6 @@ class Clientform(forms.ModelForm):
     class Meta:
         model = Client
         fields = ['name', 'quartier', 'phone', 'profession']
-
 
 
 class Serviceform(forms.ModelForm):
@@ -39,3 +39,16 @@ class Commandform(forms.ModelForm):
         return commande
 
 
+class Categoryform(forms.ModelForm):
+    class Meta:
+        model = Category
+        fields = ['name']
+
+
+class Prestationform(forms.ModelForm):
+    class Meta:
+        model = Prestation
+        fields = ['client', 'service', 'prestataire', 'done_at', 'amount']
+
+    def save(self, commit=True):
+        pass

@@ -3,7 +3,7 @@ from django.db import models
 
 class Client(models.Model):
     class Profession(models.TextChoices):
-        student = "etudiant",("etidiant")
+        student = "etudiant",("etudiant")
         worker = "travailleur",("travailleur")
 
     name = models.CharField(max_length=155)
@@ -16,10 +16,18 @@ class Client(models.Model):
         return self.name
 
 
+class Category(models.Model):
+    name = models.CharField(max_length=155)
+
+    def __str__(self):
+        return self.name
+
+
 class Service(models.Model):
     name = models.CharField(max_length=155)
     description = models.TextField()
     prix = models.IntegerField()
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -32,6 +40,14 @@ class Commande(models.Model):
 
     def __str__(self):
         return f"command {self.id} of {self.client}"
+
+
+class Prestation(models.Model):
+    prestataire = models.CharField(max_length=155)
+    done_at = models.DateField()
+    amount = models.IntegerField(default=0)
+    client = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='client_presta')
+    service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='service_presta')
 
 
 

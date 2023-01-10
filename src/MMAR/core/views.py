@@ -3,7 +3,6 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .forms import Clientform, Serviceform,Commandform
 from django.views import View
 from .models import Client, Service, Commande
-from django.contrib import messages
 from django.utils.decorators import method_decorator
 from django.contrib.auth import get_user_model, authenticate, logout, login
 
@@ -12,10 +11,21 @@ from .filters import ClientFilterSearch
 User = get_user_model()
 
 
-class Home(View):
+"""class Home(View):
     template_name = 'homepage.html'
 
     def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)"""
+
+
+class PrestationView(View):
+    template_name = 'societe.html'
+
+    @method_decorator(login_required)
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+    def post(self, request, *args, **kwargs):
         return render(request, self.template_name)
 
 
@@ -45,7 +55,6 @@ class LoginView(View):
         user = authenticate(request, username=username, password=password)
         if user is not None and user.is_active:
             login(request, user)
-            messages.success(request, "connexion réussi")
             return redirect('societe')
         return render(request, self.template_name)
 

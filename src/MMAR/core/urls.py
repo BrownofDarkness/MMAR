@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import Home, ClientView, ServicesView, AccountView, MdService, Newcommand, ClientDetailView, SocieteView, LoginView, ClientDeleteView
+from .views import ClientView, ServicesView, AccountView, MdService, Newcommand, ClientDetailView, SocieteView, LoginView, ClientDeleteView
 
 urlpatterns = [
     path("", LoginView.as_view(), name="login"),
