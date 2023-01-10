@@ -300,10 +300,236 @@ td{
     overflow-x: auto;
 }
 
-@media screen and (max-width: 1200px)
+@media only screen and (max-width: 2560px){
+
+        
+.tout{
+    width: 100%;
+    background: url(../img/d228ee1c86849d570c8bb21e3849c415.jpg);
+    background-size: 100%;
+    color: white;
+}
+.services{
+    width: 40%;    
+    margin-left: 7rem;
+}
+label{
+    font-size: 1.3rem;
+}
+span{
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+} 
+
+h4{
+    font-size: 2rem;
+}
+.services h4{
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 2rem;
+}
+.recherche{
+    width: 100%;
+   
+   
+}
+
+
+.recherche .search-wrapper{
+    display: flex;
+    align-items: center;
+    background: white;
+    width: 100%;
+    height: 2.5rem;
+    
+   
+   
+}
+.select{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.recherche .search-wrapper select{
+    background: white;
+    width: 20rem;
+   display: inline-flex;
+   margin: 1rem;
+   height: 2.5rem;
+   font-size: 1.2rem;
+   
+   
+}
+.recherche .search-wrapper span{
+    margin-left: 0.5rem;
+}
+
+.prestation{
+    margin: 2rem 30rem 0rem 30rem;
+    align-items: center;
+   
+}
+
+}
+
+@media only screen and (min-width: 1920px){
+        
+.tout{
+    width: 100%;
+    background: url(../img/d228ee1c86849d570c8bb21e3849c415.jpg);
+    background-size: 100%;
+    color: white;
+}
+.services{
+    width: 40%;    
+    margin-left: 5rem;
+}
+label{
+    font-size: 1.2rem;
+}
+
+h4{
+    font-size: 1.5rem;
+}
+.recherche{
+    width: 100%;
+   
+   
+}
+
+
+.recherche .search-wrapper{
+    display: flex;
+    align-items: center;
+    background: white;
+    width: 100%;
+    height: 2.5rem;
+    
+   
+   
+}
+    h3{
+        font-size: 2rem;
+    }
+.select{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.recherche .search-wrapper select{
+    background: white;
+    width: 15rem;
+   display: inline-flex;
+   margin: 1rem;
+   height: 2.5rem;
+   
+   
+}
+span{
+    font-size: 1rem;
+    padding-bottom: 1.4rem;
+}
+
+.prestation{
+    margin: 2rem 20rem 0rem 20rem;
+    align-items: center;
+   
+}
+select{
+    font-size: 1rem;
+    width: 40rem;
+}
+button{
+    width: 10rem;
+    height: 3rem;
+    font-size: 1,1rem;
+
+  
+}
+
+}
+
+@media only screen and (max-width: 1660px){
+        
+    .tout{
+        width: 100%;
+        background: url(../img/d228ee1c86849d570c8bb21e3849c415.jpg);
+        background-size: 100%;
+        color: white;
+    }
+    .services{
+        width: 40%;    
+        margin-left: 4.5rem;
+    }
+    .services h4{
+        font-size: 1rem;
+    }
+    
+    .recherche .search-wrapper{
+        display: flex;
+        align-items: center;
+        background: white;
+        width: 100%;
+        height: 2.5rem;
+        
+       
+       
+    }
+    label{
+        font-size: 1rem;
+    }
+        h3{
+            font-size: 1rem;
+        }
+        h4{
+            font-size: 1rem;
+        }
+    .select{
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .recherche .search-wrapper select{
+        background: white;
+        width: 15rem;
+       display: inline-flex;
+       margin: 1rem;
+       height: 2.5rem;
+       font-size: 0.9rem;
+       
+       
+    }
+    span{
+        font-size: 0.8rem;
+        padding-bottom: 1.4rem;
+    }
+    
+    .prestation{
+        margin: 2rem 15rem 0rem 15rem;
+        align-items: center;
+       
+    }
+    
+    button{
+        width: 10rem;
+        height: 3rem;
+        font-size: 1,1rem;
+    
+      
+    }
+    
+    }
+
+@media only screen and (max-width: 1200px)
     
 {
-    
+        
+
+
     
     .sidebar {
     width: 60px;
@@ -378,9 +604,73 @@ button{
   
 }
 
-@media screen and (max-width: 860px)
+@media only screen and (max-width: 860px)
     
 {
+    
+.tout{
+    width: 100%;
+    background: url(../img/d228ee1c86849d570c8bb21e3849c415.jpg);
+    background-size: 100%;
+    color: white;
+}
+.services{
+    width: 40%;    
+    margin-left: 1.5rem;
+}
+label{
+    font-size: 0.8rem;
+}
+
+.services h4{
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 0.8rem;
+}
+.recherche{
+    width: 100%;
+   
+   
+}
+
+
+.recherche .search-wrapper{
+    display: flex;
+    align-items: center;
+    background: white;
+    width: 100%;
+    height: 2.5rem;
+    
+   
+   
+}
+.select{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+
+.recherche .search-wrapper select{
+    background: white;
+    width: 5rem;
+   display: inline-flex;
+   margin: 1rem;
+   height: 2.5rem;
+   font-size: 0.8rem;
+   
+   
+}
+.recherche .search-wrapper span{
+    margin-left: 0.5rem;
+}
+
+.prestation{
+    margin: 2rem 2rem 0rem 2rem;
+    align-items: center;
+   
+}
+
     
     .dash-cards{
         grid-template-columns: repeat(2,1fr);
