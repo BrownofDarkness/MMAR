@@ -22,10 +22,36 @@ class PrestationView(View):
 
     @method_decorator(login_required)
     def get(self, request, *args, **kwargs):
-        return render(request, self.template_name)
+        services=Service.objects.all()
+        clients = Client.objects.all()
+        client_search = None
+        service_search = None
+        name1 = self.request.GET.get('client_search')
+        if name1:
+            client_search = clients.filter(name=name1).first()
+        name2 = self.request.GET.get('service_search')
+        if name2:
+            service_search = services.filter(name=name2).first()
+        context = {
+            'clients': clients,
+            'services': services,
+            'client': client_search,
+            'service': service_search
+
+        }
+        return render(request, self.template_name, context)
 
     def post(self, request, *args, **kwargs):
-        return render(request, self.template_name)
+        prestataire = request.POST['prestateur']
+        client = request.POST['nom_client']
+        service = request.POST['nom_service']
+        amount = request.POST['amount']
+        satisf = request.POST['satisfaction']
+        day = request.POST['date']
+        client = Client.objects.get(name=client)
+        service = Service.objects.get(name=service)
+        prestation = Prestation.objects.create(prestataire=prestataire, done_at=day, amount=amount, satisfaction=satisf, client=client, service=service)
+        return render(request, self.template_name, {'prestation': prestation})
 
 
 class SocieteView(View):
@@ -74,15 +100,15 @@ class ClientView(View):
 
         print(clients)
         for item in clients:
-            clientview = {'client': item, 'last_command': '', 'frequence': 0}
+            clientset = {'client': item, 'last_command': '', 'frequence': 0}
             prestations = Prestation.objects.filter(client=item)
             if prestations:
                 prestation = prestations.last()
                 print(prestation)
-                clientview['last_command'] = prestations.last()
-                clientview['frequence'] = prestations.count()
+                clientset['last_command'] = prestations.last()
+                clientset['frequence'] = prestations.count()
 
-            liste.append(clientview)
+            liste.append(clientset)
         return render(request, self.template_name, {'clients': liste, 'form': self.form_class()})
 
     def post(self, request, *args, **kwargs):

@@ -25,7 +25,6 @@ class Category(models.Model):
 
 class Service(models.Model):
     name = models.CharField(max_length=155)
-    description = models.TextField()
     prix = models.IntegerField()
     category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True)
 
@@ -46,11 +45,12 @@ class Prestation(models.Model):
     prestataire = models.CharField(max_length=155)
     done_at = models.DateField()
     amount = models.IntegerField(default=0)
+    satisfaction = models.CharField(max_length=155, default='satisfait')
     client = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='client_presta')
     service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='service_presta')
 
     def __str__(self):
-        return f"prestation of {self.client.name}"
+        return f"prestation de {self.prestataire}"
 
 
 

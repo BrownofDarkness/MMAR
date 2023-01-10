@@ -39,6 +39,7 @@
                             <thead>
                                 <tr>
                                     <th>intitule</th>
+                                    <th>categorie</th>
                                     <th>montant</th>
                                     <th>modifier</th>
                                     
@@ -48,6 +49,7 @@
                                 {% for item in services %}
                                 <tr>
                                         <td>{{item.name}}</td>
+                                        <td>{{item.category}}</td>
                                         <td>{{item.prix}}</td>
                                         <td><button><a href="md_service/{{item.id}}">modifier</a></button></td>
 
@@ -69,8 +71,6 @@
                         <h6>Remplissez moi</h6>
                           {% csrf_token %}
                           {{form.as_p}}
-                          <label for="name">Categorie</label>
-                          <select name="" id=""></select>
                         <div class="clearfix">
                           <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
                           <button type="submit" class="signup">enregistre</button>

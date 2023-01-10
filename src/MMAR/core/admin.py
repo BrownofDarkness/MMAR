@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Client, Service, Prestation
+from .models import Client, Service, Prestation, Category
 # Register your models here.
 
 
@@ -8,13 +8,18 @@ class ClientAdmin(admin.ModelAdmin):
 
 
 class ServiceAdmin(admin.ModelAdmin):
-    list_display = ('name', 'prix', 'description')
+    list_display = ('name', 'prix')
 
 
 class PrestationAdmin(admin.ModelAdmin):
-    list_display = ('prestataire', 'client', 'service','done_at')
+    list_display = ('prestataire', 'client', 'service', 'amount', 'done_at')
+
+
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('id','name')
 
 
 admin.site.register(Client, ClientAdmin)
 admin.site.register(Service, ServiceAdmin)
 admin.site.register(Prestation, PrestationAdmin)
+admin.site.register(Category, CategoryAdmin)

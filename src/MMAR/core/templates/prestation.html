@@ -32,35 +32,48 @@
                    
 
                     <div class="recherche">
-                    <form class="search-wrapper">
-                        <button><span class="ti-search"></span></button>
-                        <select name="" id="">bonbon, sedre fhgutyr</select>
+                    <form class="search-wrapper" method="get">
+                        <button type="submit"><span class="ti-search"></span></button>
+                        <select name="client_search" id="">
+                            {%for item in clients%}
+                            <option>{{item}}</option>>
+                            {%endfor%}
+                        </select>
+                        <select name="service_search" id="">
+                             {%for item in services%}
+                            <option>{{item}}</option>>
+                            {%endfor%}
+                        </select>
 
                     </form>
 
-                    <form class="search-wrapper">
-                        <button><span class="ti-search"></span></button>
-                        <select name="" id=""></select>
-                    </form>
                 </div>
                 <!--formulaire general-->
-                <form  class="tout2" action="">
+                <form  class="tout2" action="" method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
                     <!--div client-->
                     <div class="contenu">
-                       
                             
                                 <div class="services">
                                     <h4>information client</h4>
                                     <center><hr></center>
                                     
                                         <label for="name">Nom du client</label>
-                                        <input type="text">
+                                        <input type="text" name="nom_client" value="{{client.name}}" id="name">
     
                                         <label for="number">telephone client</label>
-                                        <input type="number">
+                                        <input type="number" name="phone_client" value="{{client.phone}}" id="number">
     
-                                        <label for="name">Etudiant/Eleve</label>
-                                        <select name="" id="">oui</select>
+                                        <label for="name1">Etudiant/Eleve</label>
+                                        <select name="eleve" id="name1">
+                                            {%if client.profession == 'etudiant'%}
+                                            <option selected>oui</option>
+                                            <option>non</option>
+                                            {%else%}
+                                            <option>oui</option>
+                                            <option selected>non</option>
+                                            {%endif%}
+                                        </select>
                                     </div>
                               
                                
@@ -71,34 +84,42 @@
                             <h4>information service</h4>
                             <center><hr></center>
                                 
-                                    <label for="name">Nom du service</label>
-                                    <input type="text">
+                                    <label for="serv">Nom du service</label>
+                                    <input type="text" value="{{service.name}}" id="serv" name="nom_service">
     
-                                    <label for="number">Prix fixe</label>
-                                    <input type="number"><br>
+                                    <label for="prix">Prix fixe</label>
+                                    <input type="text" value="{{service.prix}} FCFA" id="prix"><br>
     
-                                    <label for="name">categorie du service</label>
-                                    <input type="text">
+                                    <label for="cat">categorie du service</label>
+                                    <input type="text" value="{{service.category}}" id="cat">
                                 </div>
                             
                         </div>
-                   
+                   {%if prestation%}
+                   <h4>{{prestation}} crée avec succès</h4>
+                    {%endif%}
                   
                 <!--div prespation-->
                 <div class="prestation">
                     <h4>information sur la prestation</h4>
                     <center><hr></center>
                     <label for="name">Nom du prestateur</label>
-                    <input type="text">
+                    <input type="text" name="prestateur">
 
                     <label for="number">Montant net à payer</label>
-                    <input type="number">
+                    <input type="number" name="amount">
 
                     <label for="text">Niveau de satisfaction</label>
-                    <select name="" id="">sert</select>
+                    <select name="satisfaction" id="">
+                        <option>satisfait</option>
+                        <option>insatisfait</option>
+                        <option>très satisfait</option>
+                        <option>minable</option>
+                        <option>pas mal</option>
+                    </select>
 
                     <label for="date">Date du jour</label>
-                    <input type="date">
+                    <input type="date" name="date">
 
                     
                 </div>
