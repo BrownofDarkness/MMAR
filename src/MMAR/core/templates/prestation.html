@@ -34,17 +34,20 @@
                     <div class="recherche">
                     <form class="search-wrapper" method="get">
                         <button type="submit"><span class="ti-search"></span></button>
-                        <select name="client_search" id="">
-                            {%for item in clients%}
-                            <option>{{item}}</option>>
-                            {%endfor%}
-                        </select>
-                        <select name="service_search" id="">
-                             {%for item in services%}
-                            <option>{{item}}</option>>
-                            {%endfor%}
-                        </select>
-
+                        <div class="select">
+                            <select name="client_search" id="">
+                                {%for item in clients%}
+                                <option>{{item}}</option>>
+                                {%endfor%}
+                            </select>
+                            <select name="service_search" id="">
+                                 {%for item in services%}
+                                <option>{{item}}</option>>
+                                {%endfor%}
+                            </select>
+    
+                        </div>
+                       
                     </form>
 
                 </div>

@@ -221,7 +221,7 @@ class AccountView(View):
 
 @method_decorator(login_required(login_url='login'), name='get')
 class CategoryView(View):
-    template_name = ''
+    template_name = 'categorie.html'
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
