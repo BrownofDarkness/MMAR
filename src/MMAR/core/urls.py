@@ -1,9 +1,10 @@
 from django.urls import path, include
-from .views import ClientView, ServicesView, AccountView, MdService, Newcommand, ClientDetailView, SocieteView, LoginView, ClientDeleteView
+from .views import ClientView, ServicesView, AccountView, MdService, Newcommand, ClientDetailView, SocieteView, LoginView, ClientDeleteView, PrestationView
 
 urlpatterns = [
     path("", LoginView.as_view(), name="login"),
     path("dashbord/", SocieteView.as_view(), name="societe"),
+    path("dashbord/prestation", PrestationView.as_view(), name="prestation"),
     path("dashbord/client", ClientView.as_view(), name="client"),
     path('dashbord/service', ServicesView.as_view(), name='services'),
     path('dashbord/compte', AccountView.as_view(), name='compte'),

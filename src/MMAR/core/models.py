@@ -49,6 +49,9 @@ class Prestation(models.Model):
     client = models.ForeignKey(Client, on_delete=models.CASCADE, related_name='client_presta')
     service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='service_presta')
 
+    def __str__(self):
+        return f"prestation of {self.client.name}"
+
 
 
 

@@ -1,15 +1,14 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import Clientform, Serviceform,Commandform
+from .forms import Clientform, Serviceform, Commandform
 from django.views import View
-from .models import Client, Service, Commande
+from .models import Client, Service, Commande, Prestation
 from django.utils.decorators import method_decorator
 from django.contrib.auth import get_user_model, authenticate, logout, login
 
 from .filters import ClientFilterSearch
 
 User = get_user_model()
-
 
 """class Home(View):
     template_name = 'homepage.html'
@@ -19,7 +18,7 @@ User = get_user_model()
 
 
 class PrestationView(View):
-    template_name = 'societe.html'
+    template_name = 'prestation.html'
 
     @method_decorator(login_required)
     def get(self, request, *args, **kwargs):
@@ -59,7 +58,7 @@ class LoginView(View):
         return render(request, self.template_name)
 
 
-@method_decorator(login_required(login_url='login'),  name='get')
+@method_decorator(login_required(login_url='login'), name='get')
 class ClientView(View):
     template_name = 'client.html'
     form_class = Clientform
@@ -71,19 +70,20 @@ class ClientView(View):
         if name:
             clients = clients.filter(name__icontains=name)
 
-        list =[]
+        liste = []
 
         print(clients)
         for item in clients:
             clientview = {'client': item, 'last_command': '', 'frequence': 0}
-            if Commande.objects.filter(client=item):
-                commande =Commande.objects.filter(client=item).last()
-                print(commande)
-                clientview['last_command'] = Commande.objects.filter(client=item).last()
-                clientview['frequence'] = Commande.objects.filter(client=item).count()
+            prestations = Prestation.objects.filter(client=item)
+            if prestations:
+                prestation = prestations.last()
+                print(prestation)
+                clientview['last_command'] = prestations.last()
+                clientview['frequence'] = prestations.count()
 
-            list.append(clientview)
-        return render(request, self.template_name, {'clients': list, 'form': self.form_class()})
+            liste.append(clientview)
+        return render(request, self.template_name, {'clients': liste, 'form': self.form_class()})
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST, request.FILES)
@@ -92,11 +92,12 @@ class ClientView(View):
             return redirect('client')
         return render(request, self.template_name, {'form': form})
 
-@method_decorator(login_required(login_url='login'),  name='get')
+
+@method_decorator(login_required(login_url='login'), name='get')
 class ClientDetailView(View):
     template_name = 'detailsclient.html'
 
-    def get(self, request, pk,*args, **kwargs):
+    def get(self, request, pk, *args, **kwargs):
         client = Client.objects.get(pk=pk)
         comandes = Commande.objects.filter(client=client.id)
         context = {
@@ -111,11 +112,11 @@ class ClientDetailView(View):
         return render(request, self.template_name)
 
 
-@method_decorator(login_required(login_url='login'),  name='get')
+@method_decorator(login_required(login_url='login'), name='get')
 class ClientDeleteView(View):
     template_name = 'pagesupprimer.html'
 
-    def get(self, request, pk,*args, **kwargs):
+    def get(self, request, pk, *args, **kwargs):
         client = Client.objects.get(pk=pk)
         context = {
             'client': client,
@@ -128,8 +129,7 @@ class ClientDeleteView(View):
         return redirect('client')
 
 
-
-@method_decorator(login_required(login_url='login'),  name='get')
+@method_decorator(login_required(login_url='login'), name='get')
 class ServicesView(View):
     template_name = 'services.html'
     form_class = Serviceform
@@ -145,17 +145,18 @@ class ServicesView(View):
             return redirect('services')
         return render(request, self.template_name, {'form': form})
 
-@method_decorator(login_required(login_url='login'),  name='get')
+
+@method_decorator(login_required(login_url='login'), name='get')
 class MdService(View):
     template_name = 'modifierservice.html'
     form_class = Serviceform
 
-    def get(self, request, my_id,*args, **kwargs):
+    def get(self, request, my_id, *args, **kwargs):
         obj = Service.objects.get(id=my_id)
         form = self.form_class(request.POST or None, instance=obj)
-        return render(request, self.template_name,{'form': form})
+        return render(request, self.template_name, {'form': form})
 
-    def post(self, request, my_id,*args, **kwargs):
+    def post(self, request, my_id, *args, **kwargs):
         obj = Service.objects.get(id=my_id)
         form = self.form_class(request.POST or None, instance=obj)
         if form.is_valid():
@@ -164,12 +165,12 @@ class MdService(View):
         return render(request, self.template_name, {'form': form})
 
 
-@method_decorator(login_required(login_url='login'),  name='get')
+@method_decorator(login_required(login_url='login'), name='get')
 class Newcommand(View):
     template_name = 'nouveau.html'
     form_class = Commandform
 
-    def get(self, request,pk, *args, **kwargs):
+    def get(self, request, pk, *args, **kwargs):
         return render(request, self.template_name, {'form': self.form_class()})
 
     def post(self, request, pk, *args, **kwargs):
@@ -180,7 +181,7 @@ class Newcommand(View):
         return render(request, self.template_name, {'form': form})
 
 
-@method_decorator(login_required(login_url='login'),  name='get')
+@method_decorator(login_required(login_url='login'), name='get')
 class AccountView(View):
     template_name = 'compte.html'
 
@@ -189,4 +190,3 @@ class AccountView(View):
 
     def post(self, request, *args, **kwargs):
         return render(request, self.template_name)
-
