@@ -17,6 +17,7 @@ User = get_user_model()
         return render(request, self.template_name)"""
 
 
+@method_decorator(login_required(login_url='login'), name='get')
 class PrestationView(View):
     template_name = 'prestation.html'
 
@@ -54,10 +55,10 @@ class PrestationView(View):
         return render(request, self.template_name, {'prestation': prestation})
 
 
+@method_decorator(login_required(login_url='login'), name='get')
 class SocieteView(View):
     template_name = 'societe.html'
 
-    @method_decorator(login_required)
     def get(self, request, *args, **kwargs):
         services_count = Service.objects.all().count()
         client_count = Client.objects.all().count()
@@ -210,6 +211,17 @@ class Newcommand(View):
 @method_decorator(login_required(login_url='login'), name='get')
 class AccountView(View):
     template_name = 'compte.html'
+
+    def get(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+    def post(self, request, *args, **kwargs):
+        return render(request, self.template_name)
+
+
+@method_decorator(login_required(login_url='login'), name='get')
+class CategoryView(View):
+    template_name = ''
 
     def get(self, request, *args, **kwargs):
         return render(request, self.template_name)
