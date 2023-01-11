@@ -108,9 +108,10 @@
                     <center><hr></center>
                     <label for="name">Nom du prestateur</label>
                     <input type="text" name="prestateur">
-
+                    {%if not payed %}
                     <label for="number">Montant net à payer</label>
                     <input type="number" name="amount">
+                    {%endif%}
 
                     <label for="text">Niveau de satisfaction</label>
                     <select name="satisfaction" id="">

@@ -27,9 +27,12 @@ class PrestationView(View):
         clients = Client.objects.all()
         client_search = None
         service_search = None
+        payed = False
         name1 = self.request.GET.get('client_search')
         if name1:
             client_search = clients.filter(name=name1).first()
+            if (client_search.client_presta.count() % 6) == 0 and client_search.client_presta.count() > 0:
+                payed = True
         name2 = self.request.GET.get('service_search')
         if name2:
             service_search = services.filter(name=name2).first()
@@ -37,8 +40,8 @@ class PrestationView(View):
             'clients': clients.order_by('name'),
             'services': services,
             'client': client_search,
-            'service': service_search
-
+            'service': service_search,
+            'payed': payed
         }
         return render(request, self.template_name, context)
 
@@ -47,6 +50,8 @@ class PrestationView(View):
         client = request.POST['nom_client']
         service = request.POST['nom_service']
         amount = request.POST['amount']
+        if not amount:
+            amount = 0
         satisf = request.POST['satisfaction']
         day = request.POST['date']
         client = Client.objects.get(name=client)
