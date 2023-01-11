@@ -584,3 +584,7 @@ select{
     }
    
 }
+
+.ti-menu-alt:hover{
+    color: red;
+}

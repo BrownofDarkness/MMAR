@@ -48,6 +48,13 @@
     font-size: .9rem;
 }
 
+.sidebar span:hover{
+    color: red;
+}
+.ti-menu-alt:hover{
+    color: red;
+}
+
 .sidebar a span:last-child{
     padding-right: .6rem;
     transition: right 500ms;
@@ -127,6 +134,7 @@ header{
     background-image: url(../img/images.jpg);
     border-radius: 50%;
 }
+
 
 main{
     margin-top: 60px;

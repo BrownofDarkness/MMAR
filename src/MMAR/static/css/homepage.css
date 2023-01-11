@@ -21,6 +21,9 @@ header{
   text-align: center;
 }
 
+.ti-menu-alt:hover{
+  color: red;
+}
 main{
   margin-top: 9px;
   min-height: 90vh;

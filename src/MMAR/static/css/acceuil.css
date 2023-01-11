@@ -90,6 +90,11 @@ span:hover{
     margin-left: 240px;
     transition: margin-left 500ms;
 }
+
+
+.ti-menu-alt:hover{
+  color: red;
+}
 header{
     position: fixed;
     right: 0px;

@@ -19,6 +19,9 @@ a{
     color: white;
 }
 
+.ti-menu-alt:hover{
+    color: red;
+}
 
 .sidebar{
     height: 100%;
