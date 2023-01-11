@@ -31,7 +31,7 @@ class PrestationView(View):
         name1 = self.request.GET.get('client_search')
         if name1:
             client_search = clients.filter(name=name1).first()
-            if (client_search.client_presta.count() % 6) == 0 and client_search.client_presta.count() > 0:
+            if (client_search.client_presta.count() % 6) == 0 and client_search.client_presta.count() > 0 and client_search.profession == 'etudiant':
                 payed = True
         name2 = self.request.GET.get('service_search')
         if name2:
@@ -52,7 +52,7 @@ class PrestationView(View):
         satisf = request.POST['satisfaction']
         day = request.POST['date']
         client = Client.objects.get(name=client)
-        if not ((client.client_presta.count() % 6) == 0 and client.client_presta.count() > 0):
+        if not ((client.client_presta.count() % 6) == 0 and client.client_presta.count() > 0 and client.profession == 'etudiant'):
             amount = request.POST['amount']
         else:
             amount = 0
