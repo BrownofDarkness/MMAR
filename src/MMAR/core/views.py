@@ -57,7 +57,7 @@ class PrestationView(View):
         client = Client.objects.get(name=client)
         service = Service.objects.get(name=service)
         prestation = Prestation.objects.create(prestataire=prestataire, done_at=day, amount=amount, satisfaction=satisf, client=client, service=service)
-        return render(request, self.template_name, {'prestation': prestation})
+        return redirect('prestation')
 
 
 @method_decorator(login_required(login_url='login'), name='get')
