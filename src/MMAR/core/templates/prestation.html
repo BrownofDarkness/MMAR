@@ -107,14 +107,14 @@
                     <h4>information sur la prestation</h4>
                     <center><hr></center>
                     <label for="name">Nom du prestateur</label>
-                    <input type="text" name="prestateur">
+                    <input type="text" name="prestateur"  required>
                     {%if not payed %}
                     <label for="number">Montant net à payer</label>
-                    <input type="number" name="amount">
+                    <input type="number" name="amount"  required>
                     {%endif%}
 
                     <label for="text">Niveau de satisfaction</label>
-                    <select name="satisfaction" id="">
+                    <select name="satisfaction" id=""  required>
                         <option>satisfait</option>
                         <option>insatisfait</option>
                         <option>très satisfait</option>
@@ -123,7 +123,7 @@
                     </select>
 
                     <label for="date">Date du jour</label>
-                    <input type="date" name="date">
+                    <input type="date" name="date"  required>
 
                     
                         </div>
