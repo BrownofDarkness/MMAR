@@ -49,12 +49,13 @@ class PrestationView(View):
         prestataire = request.POST['prestateur']
         client = request.POST['nom_client']
         service = request.POST['nom_service']
-        amount = request.POST['amount']
-        if not amount:
-            amount = 0
         satisf = request.POST['satisfaction']
         day = request.POST['date']
         client = Client.objects.get(name=client)
+        if not ((client.client_presta.count() % 6) == 0 and client.client_presta.count() > 0):
+            amount = request.POST['amount']
+        else:
+            amount = 0
         service = Service.objects.get(name=service)
         prestation = Prestation.objects.create(prestataire=prestataire, done_at=day, amount=amount, satisfaction=satisf, client=client, service=service)
         return redirect('prestation')
