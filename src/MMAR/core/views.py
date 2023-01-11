@@ -34,7 +34,7 @@ class PrestationView(View):
         if name2:
             service_search = services.filter(name=name2).first()
         context = {
-            'clients': clients,
+            'clients': clients.order_by('name'),
             'services': services,
             'client': client_search,
             'service': service_search
