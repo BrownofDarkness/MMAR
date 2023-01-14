@@ -79,6 +79,8 @@ class LoginView(View):
     template_name = 'connexion.html'
 
     def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return redirect('societe')
         return render(request, self.template_name)
 
     def post(self, request, *args, **kwargs):
@@ -220,3 +222,11 @@ class CategoryView(View):
         categ = Category.objects.create(name=name)
 
         return redirect('category')
+
+
+@method_decorator(login_required(login_url='login'), name='get')
+class LogoutView(View):
+
+    def get(self, request, *args, **kwargs):
+        logout(request)
+        return redirect('login')
