@@ -6,7 +6,7 @@ from .models import Client, Service, Prestation, Category
 from django.utils.decorators import method_decorator
 from django.contrib.auth import get_user_model, authenticate, logout, login
 
-from .filters import ClientFilterSearch
+"""from .filters import ClientFilterSearch"""
 
 User = get_user_model()
 
@@ -57,7 +57,7 @@ class PrestationView(View):
         else:
             amount = 0
         service = Service.objects.get(name=service)
-        prestation = Prestation.objects.create(prestataire=prestataire, done_at=day, amount=amount, satisfaction=satisf, client=client, service=service)
+        Prestation.objects.create(prestataire=prestataire, done_at=day, amount=amount, satisfaction=satisf, client=client, service=service)
         return redirect('prestation')
 
 
